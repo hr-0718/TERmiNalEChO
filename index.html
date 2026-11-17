@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,18 +7,28 @@
   <link rel="icon" href="data:,">
   <style>
     html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101218;color:#eee;font:16px system-ui,sans-serif}
+    /* The game picture lives in #hre-stage. The footer (license link, game items) is laid out
+       by layoutPage(): in the side margins of a fixed-aspect picture when it fits there,
+       otherwise as a band below the stage, so it never covers the picture. */
+    #hre-stage{position:absolute;left:0;top:0;right:0;bottom:var(--hre-footer-band,0px)}
     canvas{width:100%;height:100%;display:block;object-fit:contain;outline:none}
+    #hre-footer{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:12px;box-sizing:border-box;padding:6px 12px;color:#dbe8fa;font-size:12px;line-height:1.4;pointer-events:none}
+    #hre-footer>*{pointer-events:auto;white-space:nowrap}#hre-footer a{color:inherit}
+    body.hre-footer-empty #hre-footer{display:none}
     #loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#101218;z-index:1}
     #panel{max-width:38rem;padding:2rem;text-align:center}h1{font-size:1.6rem}p{line-height:1.5;white-space:pre-wrap}
     button{border:0;border-radius:.4rem;background:#a4d0ff;color:#111;padding:.8rem 2rem;font:inherit;cursor:pointer}
-    progress{width:100%;height:.6rem}#error{color:#ffb4b4}#credit{position:absolute;bottom:8px;right:12px;color:#dbe8fa;font-size:12px}
-    #save-status{position:absolute;bottom:8px;left:12px;max-width:65%;color:#ffb4b4;font-size:13px;pointer-events:none;background:#101218cc}
+    progress{width:100%;height:.6rem}#error{color:#ffb4b4}
+    #save-status{position:absolute;bottom:calc(var(--hre-footer-band,0px) + 8px);left:12px;max-width:65%;color:#ffb4b4;font-size:13px;pointer-events:none;background:#101218cc}
+  </style>
+  <style>
+
   </style>
 </head>
 <body>
-  <canvas id="canvas" tabindex="0" aria-label="Game"></canvas>
+  <div id="hre-stage"><canvas id="canvas" tabindex="0" aria-label="Game"></canvas></div>
+  <footer id="hre-footer"><span class="hre-footer-left">© L.W. Crab</span><a id="credit" class="hre-footer-right" data-hre-license href="./Credits.html" target="_blank" rel="noopener" hidden>ライセンス</a></footer>
   <section id="loading"><div id="panel"><h1>TerNechoGame</h1><p id="status">Ready to start.</p><progress id="progress" hidden></progress><p id="error" role="alert"></p><button id="start" type="button">Start</button></div></section>
-  <a id="credit" href="./Credits.html" target="_blank" rel="noopener" hidden>Credits</a>
   <span id="save-status" role="status" aria-live="polite"></span>
   <script>
     'use strict';
@@ -297,11 +307,34 @@ function createHREUserStorage(module, projectId, notify) {
       } catch (error) { Module._free(target);throw error; }
       return { pointer: target, size: total };
     }
-    if (true) document.getElementById('credit').hidden = false;
+    // Footer layout. pictureAspect is the project's fixed aspect (width / height), 0 when
+    // the picture fills the window. "auto" puts the footer items in the side margins when
+    // each fits there, otherwise reserves a band below the stage; "band" always reserves it.
+    const pictureAspect = 0.5625;
+    const footerMode = "auto";
+    function layoutPage() {
+      const footer = document.getElementById('hre-footer');
+      const root = document.documentElement.style;
+      const items = Array.from(footer.children).filter(item => !item.hidden && getComputedStyle(item).display !== 'none' && item.textContent.trim() !== '');
+      document.body.classList.toggle('hre-footer-empty', items.length === 0);
+      if (!items.length) { root.setProperty('--hre-footer-band', '0px');return; }
+      let margins = false;
+      if (footerMode === 'auto' && pictureAspect > 0) {
+        const side = (innerWidth - Math.min(innerWidth, innerHeight * pictureAspect)) / 2;
+        const padding = parseFloat(getComputedStyle(footer).paddingLeft) || 0;
+        margins = items.every(item => item.getBoundingClientRect().width + 2 * padding <= side);
+      }
+      document.body.classList.toggle('hre-layout-margins', margins);
+      document.body.classList.toggle('hre-layout-band', !margins);
+      root.setProperty('--hre-footer-band', margins ? '0px' : Math.ceil(footer.getBoundingClientRect().height) + 'px');
+    }
+    if (true) for (const link of document.querySelectorAll('[data-hre-license]')) link.hidden = false;
+    window.addEventListener('resize', layoutPage);
+    layoutPage();
     var Module = {
       canvas,
       hreProjectId: "70069eec-b84b-42ed-8a83-4a7c25b1ca81",
-      hreAssetPackBytes: 25891752,
+      hreAssetPackBytes: 27664553,
       locateFile: file => new URL(file, pageRoot).href,
       print: text => console.log(text),
       printErr: text => console.error(text),

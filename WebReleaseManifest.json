@@ -119,8 +119,8 @@
                   },
                   {
                       "path":  "index.html",
-                      "sha256":  "639db414e5bc1513ee5d67ac11accb1c162204ddaeb4bb0af90bda5138f47438",
-                      "bytes":  24769
+                      "sha256":  "090ca01eb25e553eb85b801e87b2c5ab1b2e9733e1a968cf0d4463f8c1818f98",
+                      "bytes":  26868
                   },
                   {
                       "path":  "_Credit/Game/third_party.txt",
@@ -129,13 +129,13 @@
                   },
                   {
                       "path":  "WebSizeReport.json",
-                      "sha256":  "6bcc6c06fb6c329ecbdef7fb8ec8ff5a8de88ab170451a84ef32d6149d07b97f",
-                      "bytes":  234973
+                      "sha256":  "ec58f2410de0e2174f95760786ac5dd7320f52f6ed8021fad6ec26b26c612e48",
+                      "bytes":  257223
                   },
                   {
                       "path":  "HREngine.wasm",
-                      "sha256":  "806def51747981eefb394fbaaf6732c88f1667d94c61bf953af1b5c3a0c6428d",
-                      "bytes":  5595442
+                      "sha256":  "86c120bd170364124aa189c77d13cf3de59f08afd4b8f87078ff3f5dc2a4f189",
+                      "bytes":  5675987
                   },
                   {
                       "path":  ".nojekyll",
@@ -149,18 +149,18 @@
                   },
                   {
                       "path":  "Assets.pack",
-                      "sha256":  "75b0435a72d1aa18417adcef09ef01ab10e2c55f1be2fe1bfc47137e6972e4f5",
-                      "bytes":  25891752
+                      "sha256":  "179f3ec549f15dd6f1b95072c73883a377302383450d8c9dc8d9667e164f0ec1",
+                      "bytes":  27664553
                   },
                   {
                       "path":  "HREngine.js",
-                      "sha256":  "3fefce48687a30cf7de20b5dc839291152c0a4566dd9621c40be981c365e606a",
-                      "bytes":  195349
+                      "sha256":  "6d036127fd51f7f3d8366459eba82274292de4e4beac8c72d7310644c58c7cfd",
+                      "bytes":  194693
                   },
                   {
                       "path":  "Credits.html",
-                      "sha256":  "77c0f324444738f48e9c5272bb631d0292cc4ccea4749fa437d3b35b924485d0",
-                      "bytes":  4057
+                      "sha256":  "5033b315dececd068a72836f7d0cc9e874e9ade279858215ebc50bd86daf744d",
+                      "bytes":  4073
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_LLGI.txt",
