@@ -1,0 +1,3 @@
+# Local test helpers. Keep index.html, .nojekyll, Wasm, JavaScript, Assets.pack and _Credit.
+/StartLocal.bat
+/.local/

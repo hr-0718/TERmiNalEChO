@@ -1,0 +1,413 @@
+Emscripten and WebGPU bridge source notices
+==========================================
+
+Original per-file copyright/license headers from the installed Emscripten 6.0.13
+and Emdawnwebgpu sources. Source-wide retention is conservative; some listed
+modules are not linked by this game. The full MIT license and the upstream
+NCSA alternative are in LICENSE_Emscripten.txt and LICENSE_EmdawnWebGPU.txt.
+
+Source files:
+  system/lib/html5/key_codes.c
+
+/*
+ * Copyright 2017 The Emscripten Authors.  All rights reserved.
+ * Emscripten is available under two separate licenses, the MIT license and the
+ * University of Illinois/NCSA Open Source License.  Both these licenses can be
+ * found in the LICENSE file.
+ */
+
+Source files:
+  system/lib/standalone/__main_void.c
+  system/lib/standalone/standalone.c
+  system/lib/standalone/standalone_wasm_stdio.c
+
+/*
+ * Copyright 2019 The Emscripten Authors.  All rights reserved.
+ * Emscripten is available under two separate licenses, the MIT license and the
+ * University of Illinois/NCSA Open Source License.  Both these licenses can be
+ * found in the LICENSE file.
+ */
+
+Source files:
+  system/lib/html5/callback.c
+
+/*
+ * Copyright 2023 The Emscripten Authors.  All rights reserved.
+ * Emscripten is available under two separate licenses, the MIT license and the
+ * University of Illinois/NCSA Open Source License.  Both these licenses can be
+ * found in the LICENSE file.
+ */
+
+Source files:
+  cache/ports/emdawnwebgpu/emdawnwebgpu_pkg/webgpu/src/webgpu-externs.js
+
+/*
+ * Copyright 2025 The Emscripten Authors.  All rights reserved.
+ * Emscripten is available under two separate licenses, the MIT license and the
+ * University of Illinois/NCSA Open Source License.  Both these licenses can be
+ * found in the LICENSE file.
+ *
+ * WebGPU globals
+ * Generated using https://github.com/kainino0x/webidl-to-closure-externs
+ * against the spec's WebIDL: https://gpuweb.github.io/gpuweb/webgpu.idl
+ */
+
+Source files:
+  src/lib/liblegacy.js
+
+/**
+ * @license
+ * Copyright 2010 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ *
+ * Legacy library symbols that are no longer used by emscripten itself but
+ * could have external users.
+ *
+ * Symbols in this file are not available in `-sSTRICT` mode.
+ *
+ * Any usage of symbols in this file will result in a `-Wdeprecated` warning.
+ *
+ * Symbol in this file should be removed after 'enough time' has passed such
+ * that all external users have been able to transition away.
+ */
+
+Source files:
+  src/lib/libcore.js
+  src/lib/libeventloop.js
+  src/lib/libexceptions.js
+  src/lib/libglemu.js
+  src/lib/libsdl.js
+  src/lib/libwebgl.js
+  src/lib/libwebgl2.js
+  src/postamble.js
+  src/preamble.js
+  src/shell.js
+  src/shell_minimal.js
+
+/**
+ * @license
+ * Copyright 2010 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/lib/libbrowser.js
+  src/lib/libwget.js
+
+/**
+ * @license
+ * Copyright 2011 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/lib/libegl.js
+  src/lib/libglut.js
+  src/lib/libxlib.js
+
+/**
+ * @license
+ * Copyright 2012 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/emrun_postjs.js
+
+/**
+ * @license
+ * Copyright 2013 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ *
+ * This file gets implicitly injected as a `--post-js` file when
+ * emcc is run with `--emrun`
+ */
+
+Source files:
+  src/emrun_prejs.js
+
+/**
+ * @license
+ * Copyright 2013 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ *
+ * This file gets implicitly injected as a `--pre-js` file when
+ * emcc is run with `--emrun`
+ */
+
+Source files:
+  src/lib/libfs.js
+  src/lib/libglfw.js
+  src/lib/libidbfs.js
+  src/lib/libmemfs.js
+  src/lib/libnodefs.js
+  src/lib/libopenal.js
+  src/lib/libpath.js
+  src/lib/libsockfs.js
+  src/lib/libtty.js
+  src/lib/libuuid.js
+
+/**
+ * @license
+ * Copyright 2013 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/deterministic.js
+  src/lib/libasync.js
+  src/lib/libglew.js
+  src/lib/libhtml5.js
+  src/lib/libhtml5_webgl.js
+  src/lib/libtrace.js
+
+/**
+ * @license
+ * Copyright 2014 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/lib/libpthread.js
+
+/**
+ * @license
+ * Copyright 2015 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ *
+ * Because only modern JS engines support SAB we can use modern JS language
+ * features within this file (ES2020).
+ */
+
+Source files:
+  src/cpuprofiler.js
+  src/IDBStore.js
+  src/lib/libbootstrap.js
+  src/lib/libidbstore.js
+  src/lib/liblz4.js
+  src/lib/libpthread_stub.js
+  src/lib/libsyscall.js
+  src/lib/libworkerfs.js
+  src/memoryprofiler.js
+  src/runtime_pthread.js
+
+/**
+ * @license
+ * Copyright 2015 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/Fetch.js
+  src/lib/libfetch.js
+  src/lib/libproxyfs.js
+
+/**
+ * @license
+ * Copyright 2016 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/lib/libpipefs.js
+
+/**
+ * @license
+ * Copyright 2017 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/lib/libnoderawfs.js
+  src/lib/libwebsocket.js
+
+/**
+ * @license
+ * Copyright 2018 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/lib/libexceptions_stub.js
+  src/lib/libstack_trace.js
+  src/lib/libwasi.js
+  src/node_shell_read.js
+  src/postamble_minimal.js
+  src/preamble_minimal.js
+  src/runtime_asan.js
+  src/runtime_init_memory.js
+  src/runtime_safe_heap.js
+  src/runtime_stack_check.js
+  src/source_map_support.js
+  src/wasm2js.js
+  src/web_or_worker_shell_read.js
+  cache/ports/emdawnwebgpu/emdawnwebgpu_pkg/webgpu/src/library_webgpu.js
+
+/**
+ * @license
+ * Copyright 2019 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/lib/libdylink.js
+
+/**
+ * @license
+ * Copyright 2020 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ *
+ * Dynamic library loading
+ */
+
+Source files:
+  src/lib/libaddfunction.js
+  src/lib/libbase64.js
+  src/lib/libexports.js
+  src/lib/libint53.js
+  src/lib/libstrings.js
+  src/runtime_debug.js
+
+/**
+ * @license
+ * Copyright 2020 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/lib/libautodebug.js
+  src/lib/libccall.js
+  src/lib/libgetvalue.js
+  src/lib/libnodepath.js
+  src/lib/libwasmfs.js
+  src/lib/libwasmfs_fetch.js
+  src/lib/libwasmfs_jsimpl.js
+  src/lib/libwasmfs_node.js
+  src/lib/libwasmfs_opfs.js
+
+/**
+ * @license
+ * Copyright 2022 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/lib/libatomic.js
+  src/lib/libfetchfs.js
+  src/lib/libicasefs.js
+  src/lib/libjsfilefs.js
+  src/lib/libopfs.js
+  src/lib/libpromise.js
+  src/lib/libwasm_worker.js
+  src/runtime_exceptions.js
+
+/**
+ * @license
+ * Copyright 2023 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/lib/libtime.js
+  src/minimum_runtime_check.js
+  src/runtime_common.js
+
+/**
+ * @license
+ * Copyright 2024 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/modularize.js
+
+/**
+ * @license
+ * Copyright 2025 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/lib/libsyscall_shared.js
+
+/**
+ * @license
+ * Copyright 2026 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ *
+ * Syscalls that are shared between WasmFS and the old-FS.
+ * Unlike `libsyscalls.js` this file is included under both filesystem backends.
+ */
+
+Source files:
+  src/lib/libepoll.js
+  src/lib/libsockfs_node.js
+  src/lib/libunwind.js
+
+/**
+ * @license
+ * Copyright 2026 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/lib/libfs_shared.js
+
+/**
+ * @license
+ * Copyright 2032 The Emscripten Authors
+ * SPDX-License-Identifier: MIT
+ */
+
+Source files:
+  src/closure-externs/closure-externs.js
+
+/**
+ * Copyright 2014 The Emscripten Authors.  All rights reserved.
+ * Emscripten is available under two separate licenses, the MIT license and the
+ * University of Illinois/NCSA Open Source License.  Both these licenses can be
+ * found in the LICENSE file.
+ *
+ * This file contains definitions for things that we'd really rather the closure compiler *didn't* minify.
+ * See http://code.google.com/p/closure-compiler/wiki/FAQ#How_do_I_write_an_externs_file
+ * See also the discussion here: https://github.com/emscripten-core/emscripten/issues/1979
+ *
+ * The closure_compiler() method in tools/building.py refers to this file when calling closure.
+ */
+
+Source files:
+  src/settings_internal.js
+
+//
+// @license
+// Copyright 2019 The Emscripten Authors
+// SPDX-License-Identifier: MIT
+//
+
+Source files:
+  src/lib/libembind.js
+  src/lib/libemval.js
+  system/lib/embind/bind.cpp
+
+// Copyright 2012 The Emscripten Authors.  All rights reserved.
+// Emscripten is available under two separate licenses, the MIT license and the
+// University of Illinois/NCSA Open Source License.  Both these licenses can be
+// found in the LICENSE file.
+
+Source files:
+  src/lib/libembind_gen.js
+  src/lib/libembind_shared.js
+
+// Copyright 2023 The Emscripten Authors.  All rights reserved.
+// Emscripten is available under two separate licenses, the MIT license and the
+// University of Illinois/NCSA Open Source License.  Both these licenses can be
+// found in the LICENSE file.
+
+Source files:
+  cache/ports/emdawnwebgpu/emdawnwebgpu_pkg/webgpu/src/webgpu.cpp
+
+// Copyright 2024 The Emscripten Authors.  All rights reserved.
+// Emscripten is available under two separate licenses, the MIT license and the
+// University of Illinois/NCSA Open Source License.  Both these licenses can be
+// found in the LICENSE file.
+

@@ -1,0 +1,40 @@
+Web Release runtime notices
+===========================
+
+The Web Release target uses the following runtime dependencies.
+RuntimeCredits.json selects this collection for Web/WebGPU only.
+Complete bundled notices for selected components are retained together.
+
+DirectXMath: Microsoft, MIT; scalar Web build from commit
+f5d82574b03417d905fdd2f85bfa9bf7a2f1deac.
+https://github.com/microsoft/DirectXMath
+Notice: LICENSE_DirectXMath.txt
+
+Emscripten 6.0.13: generated JavaScript support (including filesystem and
+persistence) and system runtime. Its complete upstream license includes the
+bundled Node.js-derived path code notices.
+https://github.com/emscripten-core/emscripten/tree/6.0.13
+Notices: LICENSE_Emscripten.txt, LICENSE_Web_Emscripten_Bundled_Notices.txt,
+LICENSE_Web_Musl.txt,
+LICENSE_Web_Musl_Bundled_Notices.txt, LICENSE_Web_dlmalloc.txt,
+LICENSE_Web_Libcxx.txt, LICENSE_Web_Libcxxabi.txt,
+LICENSE_Web_CompilerRT.txt, LICENSE_Web_Libunwind.txt,
+LICENSE_Web_LLVM_Libc.txt.
+The bundled musl notices retain source attribution conservatively, including
+some code not selected by wasm32. They supplement musl's complete COPYRIGHT.
+
+Emdawnwebgpu v20260423.175430: Emscripten's WebGPU JavaScript/C++ bridge, Dawn
+C++ headers, and WebGPU native C headers; revision
+31e25af254ab572c77054edec4946d2244e184dd.
+https://github.com/google/dawn/releases/tag/v20260423.175430
+Notices: LICENSE_EmdawnWebGPU.txt, LICENSE_Dawn.txt,
+LICENSE_WebGPU_Headers.txt.
+
+The MIT-licensed SAL annotations from dotnet/runtime v9.0.2 are used by the
+portable DirectXMath headers; retained as LICENSE_DotNet_SAL.txt.
+https://github.com/dotnet/runtime/blob/v9.0.2/src/coreclr/pal/inc/rt/sal.h
+
+Slang 2026.20 is a build-time shader compiler. It is not shipped in the game.
+Its complete LICENSE, LICENSES, and third-party-notices remain in the installed
+Web SDK alongside the compiler. Emsdk, Python, Node, and other SDK tool notices
+likewise remain with their unmodified local tool distributions.

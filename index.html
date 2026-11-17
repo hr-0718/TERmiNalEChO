@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TerNechoGame</title>
+  <link rel="icon" href="data:,">
+  <style>
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101218;color:#eee;font:16px system-ui,sans-serif}
+    canvas{width:100%;height:100%;display:block;object-fit:contain;outline:none}
+    #loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#101218;z-index:1}
+    #panel{max-width:38rem;padding:2rem;text-align:center}h1{font-size:1.6rem}p{line-height:1.5;white-space:pre-wrap}
+    button{border:0;border-radius:.4rem;background:#a4d0ff;color:#111;padding:.8rem 2rem;font:inherit;cursor:pointer}
+    progress{width:100%;height:.6rem}#error{color:#ffb4b4}#credit{position:absolute;bottom:8px;right:12px;color:#dbe8fa;font-size:12px}
+    #save-status{position:absolute;bottom:8px;left:12px;max-width:65%;color:#ffb4b4;font-size:13px;pointer-events:none;background:#101218cc}
+  </style>
+</head>
+<body>
+  <canvas id="canvas" tabindex="0" aria-label="Game"></canvas>
+  <section id="loading"><div id="panel"><h1>TerNechoGame</h1><p id="status">Ready to start.</p><progress id="progress" hidden></progress><p id="error" role="alert"></p><button id="start" type="button">Start</button></div></section>
+  <a id="credit" href="./Credits.html" target="_blank" rel="noopener" hidden>Credits</a>
+  <span id="save-status" role="status" aria-live="polite"></span>
+  <script>
+    'use strict';
+    // Local, per-origin/project IndexedDB storage. No network requests are made here.
+// Numeric result codes match File::UserSave::Code; completion is after syncfs(false).
+function createHREUserStorage(module, projectId, notify) {
+  'use strict';
+  const OK=2, INVALID=3, MISSING=4, LARGE=5, DENIED=7, IO=8, SPACE=9, UNAVAILABLE=10, BUSY=11;
+  const maxFile=16*1024*1024, maxQueue=32*1024*1024;
+  const root='/save/game-'+encodeURIComponent(projectId), fs=module.FS;
+  const lockName='HREngine.UserSave:'+root;
+  let ready=false, pumping=false, busy=false, queuedBytes=0;
+  const jobs=[];
+  const sync=populate=>new Promise((resolve,reject)=>{
+    let database, descriptor, ended=false, settled=false, failure;
+    const transactions=new Set();
+    const settle=()=>{
+      if(settled || !ended || transactions.size) return;
+      settled=true;clearTimeout(timer);
+      if(database) {
+        if(descriptor) Object.defineProperty(database,'transaction',descriptor);
+        else delete database.transaction;
+      }
+      failure?reject(failure):resolve();
+    };
+    const finish=error=>{
+      if(settled || ended) return;
+      ended=true;failure=error;
+      // IDBFS may call its error callback before the failed transaction aborts.
+      // Wait for/cancel this operation's transactions before rollback can start.
+      if(error) for(const tx of transactions) { try { tx.abort(); } catch {} }
+      settle();
+    };
+    const timer=setTimeout(()=>{
+      // An operation with unknown completion must never be followed by a write
+      // from stale memory. Restart/restoration is required after this timeout.
+      ready=false;
+      for(const tx of transactions) {try{tx.abort();}catch{}}
+      transactions.clear();
+      finish(new DOMException('Local saved data storage timed out','TimeoutError'));settle();
+    },30000);
+    // Pinned IDBFS exposes getDB. Its onabort callback can receive a null error
+    // for an explicit abort, so also observe the actual database abort event.
+    module.IDBFS.getDB(root,(error,db)=>{
+      if(settled) return;
+      if(error) return finish(error);
+      database=db;descriptor=Object.getOwnPropertyDescriptor(db,'transaction');
+      const original=db.transaction;
+      db.transaction=function(...args) {
+        const tx=original.apply(this,args);
+        transactions.add(tx);
+        tx.addEventListener('complete',()=>{transactions.delete(tx);settle();},{once:true});
+        tx.addEventListener('abort',()=>{
+          transactions.delete(tx);
+          finish(tx.error || new DOMException('Saved data transaction aborted','AbortError'));
+          settle();
+        },{once:true});
+        return tx;
+      };
+      try { fs.syncfs(populate,finish); } catch(error) { finish(error); }
+    });
+  });
+  const locked=work=>navigator.locks.request(lockName,{mode:'exclusive'},work);
+  const errorCode=error=> {
+    const name=error?.name || error?.target?.error?.name;
+    if(name==='TimeoutError') return UNAVAILABLE;
+    if(name==='QuotaExceededError' || error?.errno===51) return SPACE;
+    if(name==='SecurityError' || name==='NotAllowedError' || error?.errno===2 || error?.errno===63) return DENIED;
+    return IO;
+  };
+  function safeKey(key) {
+    if(typeof key!=='string' || !key || new TextEncoder().encode(key).length>512) return null;
+    key=key.replaceAll('\\','/');
+    const parts=key.split('/');
+    if(parts.length>16 || parts.some(p=>!p || p==='.' || p==='..' || /[\x00-\x1f\x7f:*?"<>|]/.test(p) || /[. ]$/.test(p) || new TextEncoder().encode(p).length>128 || /^(CON|PRN|AUX|NUL|COM[0-9¹²³]|LPT[0-9¹²³])(?:\.|$)/i.test(p))) return null;
+    return key;
+  }
+  function path(key, create) {
+    let current=root;
+    const parts=key.split('/');
+    for(let i=0;i<parts.length;++i) {
+      current+='/'+parts[i];
+      const exists=fs.analyzePath(current,true).exists;
+      if(exists) {
+        const stat=fs.lstat(current);
+        if(fs.isLink(stat.mode) || (i+1<parts.length && !fs.isDir(stat.mode)) || (i+1===parts.length && !fs.isFile(stat.mode))) throw Object.assign(new Error('Unsafe save path'),{errno:2});
+      } else if(create && i+1<parts.length) fs.mkdir(current);
+    }
+    return current;
+  }
+  async function execute(job) {
+    if(!ready) return UNAVAILABLE;
+    try {
+      return await locked(async()=>{
+        // Refresh under the same cross-tab lock before changing anything. An old
+        // tab must not overwrite/delete saves committed by a newer tab.
+        await sync(true);
+        let changed=false;
+        try {
+          if(job.operation!==2) {
+            changed=true; // Includes directory creation or a partially failed write.
+            const target=path(job.key,job.operation===0);
+            if(job.operation===1) {
+              if(fs.analyzePath(target,true).exists) { fs.unlink(target); changed=true; }
+            } else {
+              // IDBFS compares timestamps. Ensure changes in the same millisecond
+              // are not mistaken for an unchanged file, even across different tabs.
+              const previous=fs.analyzePath(target,true).exists?Number(fs.stat(target).mtime):0;
+              fs.writeFile(target,job.bytes);
+              const timestamp=new Date(Math.max(Date.now(),previous+1));
+              fs.utime(target,timestamp,timestamp); changed=true;
+            }
+          }
+          await sync(false); // IDBFS invokes this callback from transaction.oncomplete.
+          return OK;
+        } catch(error) {
+          // A failed IndexedDB transaction preserves its previous committed data.
+          // Restore MEMFS before exposing reads or processing the next operation.
+          if(changed && ready) {
+            try { await sync(true); }
+            catch(recovery) { ready=false; console.error('Could not restore local saved data:',recovery); }
+          }
+          throw error;
+        }
+      });
+    } catch(error) { return errorCode(error); }
+  }
+  async function drain() {
+    if(pumping) return;
+    pumping=true;
+    while(jobs.length) {
+      const job=jobs.shift();
+      busy=true;
+      const code=await execute(job);
+      queuedBytes-=job.bytes.length;
+      // C++ callbacks may synchronously read or queue another save.
+      busy=false;
+      module._hre_complete_user_save(job.id,code);
+      notify(code);
+    }
+    pumping=false;
+  }
+  return {
+    async initialize() {
+      module.hreSaveRoot=root;
+      try {
+        fs.mkdirTree(root); fs.mount(module.IDBFS,{},root);
+        if(!navigator.locks?.request) throw new Error('Safe local saving requires the Web Locks API.');
+        await locked(()=>sync(true));
+        ready=true;
+      } catch(error) {
+        ready=false;
+        console.warn('Local saved data is unavailable:',error);
+        notify(UNAVAILABLE); // Play can continue, but do not overwrite unknown saved data.
+      }
+    },
+    submit(id,key,bytes,operation) {
+      const complete=code=>{ module._hre_complete_user_save(id,code);notify(code); };
+      if(!ready) return complete(UNAVAILABLE);
+      if(operation!==0 && operation!==1 && operation!==2) return complete(INVALID);
+      const safe=operation===2?'':safeKey(key);
+      if(operation!==2 && safe===null) return complete(INVALID);
+      if(bytes.length>maxFile) return complete(LARGE);
+      if(jobs.length>=64 || queuedBytes+bytes.length>maxQueue) return complete(BUSY);
+      queuedBytes+=bytes.length;
+      jobs.push({id,key:safe,bytes,operation});
+      void drain();
+    },
+    read(key,pointer,capacity) {
+      const copying=pointer!==0 || capacity===-1;
+      if(!ready) return copying?UNAVAILABLE:-UNAVAILABLE;
+      if(busy) return copying?BUSY:-BUSY;
+      const safe=safeKey(key);
+      if(safe===null) return copying?INVALID:-INVALID;
+      try {
+        const target=path(safe,false);
+        if(!fs.analyzePath(target,true).exists) return copying?MISSING:-MISSING;
+        const stat=fs.stat(target);
+        if(stat.size>maxFile) return copying?LARGE:-LARGE;
+        // The first call only asks for length; the second copies a stable snapshot.
+        // Empty buffers have a null pointer too, so capacity=-1 denotes that copy.
+        if(!pointer && capacity!==-1) return stat.size;
+        const bytes=fs.readFile(target);
+        if(bytes.length!==Math.max(0,capacity)) return IO;
+        if(bytes.length) module.HEAPU8.set(bytes,pointer);
+        return OK;
+      } catch(error) { const code=errorCode(error);return pointer||capacity===-1?code:-code; }
+    }
+  };
+}
+
+    const canvas = document.getElementById('canvas');
+    const statusText = document.getElementById('status');
+    const progress = document.getElementById('progress');
+    const start = document.getElementById('start');
+    const loading = document.getElementById('loading');
+    let failed = false;
+    function fail(error) {
+      if (failed) return;
+      failed = true;
+      loading.hidden = false;
+      loading.style.display = 'flex';
+      statusText.textContent = 'Unable to start the game.';
+      document.getElementById('error').textContent = String(error && error.message || error);
+      progress.hidden = true;
+      console.error(error);
+    }
+    window.addEventListener('error', event => fail(event.error || event.message));
+    window.addEventListener('unhandledrejection', event => fail(event.reason));
+    const pageRoot = new URL('./', window.location.href);
+    if (true) document.getElementById('credit').hidden = false;
+    var Module = {
+      canvas,
+      hreProjectId: "70069eec-b84b-42ed-8a83-4a7c25b1ca81",
+      locateFile: file => new URL(file, pageRoot).href,
+      print: text => console.log(text),
+      printErr: text => console.error(text),
+      onAbort: reason => fail('Game startup failed: ' + reason),
+      hreError: fail,
+      // Called by the engine when graphics initialization fails. The probe can pass while
+      // the engine's own adapter/device request still fails; reload with the WebGL 2 runtime
+      // unless WebGPU was requested explicitly. Returns true when the error is handled here.
+      hreGraphicsFailed: function(message) {
+        if (failed || runtime !== 'webgpu' || requested === 'webgpu' || !hasWebGL2()) return false;
+        console.warn('HRE Web: WebGPU engine initialization failed; reloading with the WebGL 2 runtime. ' + message);
+        const next = new URL(location.href);
+        next.searchParams.set('backend', 'webgl');
+        next.searchParams.set('hreFallback', String(message).slice(0, 200));
+        location.replace(next.href);
+        return true;
+      },
+      hreStarted: function() {
+        if (failed) return;
+        Module.hreRunning = true;
+        loading.style.display = 'none';
+        canvas.focus();
+      },
+      hreStopped: function() { Module.hreRunning = false; },
+      preRun: [function() {
+        Module.addRunDependency('hre-assets');
+        statusText.textContent = 'Loading game assets…';
+        progress.hidden = false;
+        (async function() {
+          Module.hreUserStorage = createHREUserStorage(Module, Module.hreProjectId, code => {
+            document.getElementById('save-status').textContent = code === 2 ? '' :
+              code === 9 ? 'Not enough browser storage. Your changes could not be saved.' :
+              'Local saving is unavailable or failed. Your changes may not be saved.';
+          });
+          await Module.hreUserStorage.initialize();
+          const response = await fetch(new URL('Assets.pack', pageRoot));
+          if (!response.ok) throw new Error('Assets.pack: HTTP ' + response.status);
+          const total = Number(response.headers.get('Content-Length'));
+          // One browser allocation and one Wasm allocation, released after transfer.
+          // No MEMFS copy is created. Progress is indeterminate where size is unknown.
+          let bytes;
+          if (response.body && total > 0 && !response.headers.get('Content-Encoding')) {
+            bytes = new Uint8Array(total);
+            const reader = response.body.getReader();
+            let received = 0;
+            while (true) {
+              const result = await reader.read();
+              if (result.done) break;
+              if (received + result.value.length > total) throw new Error('Assets.pack length changed during download.');
+              bytes.set(result.value, received);received += result.value.length;
+              progress.max = total;progress.value = received;
+              statusText.textContent = 'Loading game assets… ' + Math.floor(received / total * 100) + '%';
+            }
+            if (received !== total) throw new Error('Assets.pack download was incomplete.');
+          } else {
+            progress.removeAttribute('value');
+            bytes = new Uint8Array(await response.arrayBuffer());
+          }
+          if (bytes.length < 16) throw new Error('Assets.pack is empty or invalid.');
+          const pointer = Module._malloc(bytes.length);
+          if (!pointer) throw new Error('Insufficient memory for the game asset pack.');
+          Module.HEAPU8.set(bytes, pointer);
+          if (!Module._hre_mount_asset_pack(pointer, bytes.length)) {
+            Module._free(pointer);
+            throw new Error('The game rejected Assets.pack.');
+          }
+          bytes = null;
+          statusText.textContent = 'Starting game…';
+          Module.removeRunDependency('hre-assets');
+        })().catch(fail);
+      }],
+      onRuntimeInitialized: function() {
+        if (failed) return;
+        statusText.textContent = 'Initializing game…';
+      }
+    };
+    // WebGPU runtime (HREngine) by default. When WebGPU cannot start (no navigator.gpu,
+    // requestAdapter returns null, or requestDevice fails), the WebGL 2 fallback runtime
+    // (HREngineGL) starts instead. ?backend=webgpu or ?backend=webgl forces one runtime.
+    // Both read the same Assets.pack.
+    const query = new URLSearchParams(location.search);
+    const requested = query.get('backend');
+    let runtime = null;
+    // Set when the WebGPU engine itself failed to initialize after the page probe passed.
+    const fallbackReason = query.get('hreFallback');
+    if (fallbackReason && requested === 'webgl') {
+      statusText.textContent = 'Ready to start (WebGL 2).';
+      console.warn('HRE Web: using the WebGL 2 runtime because WebGPU failed to initialize. ' + fallbackReason);
+    }
+    async function webgpuProblem() {
+      if (!window.isSecureContext) return 'WebGPU requires HTTPS or localhost.';
+      if (!navigator.gpu) return 'WebGPU is unavailable in this browser.';
+      try {
+        // Same adapter options as the engine (WebGPU/Bootstrap.cpp). The probe device is
+        // released at once; the engine requests its own adapter and device.
+        const adapter = await navigator.gpu.requestAdapter({powerPreference: 'high-performance'});
+        if (!adapter) return 'WebGPU not available on this browser (requestAdapter returned null).';
+        const device = await adapter.requestDevice();
+        device.destroy();
+        return null;
+      } catch (error) {
+        return 'WebGPU device request failed: ' + String(error && error.message || error);
+      }
+    }
+    function hasWebGL2() { return !!document.createElement('canvas').getContext('webgl2'); }
+    start.addEventListener('click', async function() {
+      start.disabled = true;
+      if (location.protocol === 'file:') return fail('Use StartLocal.bat or an HTTPS web server to open this game.');
+      if (typeof WebAssembly !== 'object') return fail('This browser does not support WebAssembly.');
+      let webgl = requested === 'webgl';
+      if (!webgl) {
+        statusText.textContent = 'Checking graphics…';
+        const problem = await webgpuProblem();
+        if (problem && requested === 'webgpu') return fail(problem);
+        if (problem) {
+          if (!hasWebGL2()) return fail(problem + ' WebGL 2 is also unavailable.');
+          console.warn('HRE Web: starting the WebGL 2 runtime. ' + problem);
+          webgl = true;
+        }
+      } else if (!hasWebGL2()) return fail('WebGL 2 is unavailable in this browser.');
+      statusText.textContent = 'Loading game engine…';
+      start.hidden = true;
+      runtime = webgl ? 'webgl' : 'webgpu';
+      const engine = webgl ? 'HREngineGL.js' : 'HREngine.js';
+      const script = document.createElement('script');
+      script.src = new URL(engine, pageRoot).href;
+      script.onerror = () => fail('Could not load ' + engine + '.');
+      document.body.appendChild(script);
+    });
+    // Keep keyboard focus inside the game without suppressing browser UI shortcuts.
+    canvas.addEventListener('pointerdown', () => canvas.focus());
+    canvas.addEventListener('contextmenu', event => event.preventDefault());
+  </script>
+</body>
+</html>

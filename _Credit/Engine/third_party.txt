@@ -1,0 +1,54 @@
+Third-Party Libraries and Assets Distributed with the Web Release Game
+====================================================================
+
+Target: Web / WebGPU
+Complete license texts are in third_party/. Game-owned notices are in ../Game/.
+The selected component's bundled notices are retained as a complete collection.
+
+Common engine components:
+Effekseer HEFK runtime and WebGPU renderer - MIT - https://github.com/effekseer/Effekseer
+LLGI WebGPU backend - zlib license - https://github.com/altseed/LLGI
+Maximilian - MIT and bundled permissive notices - https://github.com/micknoise/maximilian
+miniaudio - MIT-0 alternative - https://github.com/mackron/miniaudio
+pl_mpeg video decoder - MIT - https://github.com/phoboslab/pl_mpeg
+RapidJSON - MIT and upstream bundled notices - https://github.com/Tencent/rapidjson
+simdjson 4.0.7 - MIT, Boost, BSD and bundled source notices - https://github.com/simdjson/simdjson
+Noto Sans JP - SIL Open Font License 1.1 - https://fonts.google.com/noto/specimen/Noto+Sans+JP
+
+Web runtime components:
+DirectXMath scalar headers, SAL annotations, Emscripten and its bundled system
+runtime, Emdawnwebgpu, Dawn and WebGPU headers. Source/version details are in
+third_party/NOTICE_WebRuntime.txt. SDK tools are not shipped with the game.
+
+License and notice files:
+ - third_party/LICENSE_Dawn.txt
+ - third_party/LICENSE_DirectXMath.txt
+ - third_party/LICENSE_DotNet_SAL.txt
+ - third_party/LICENSE_Effekseer.txt
+ - third_party/LICENSE_EmdawnWebGPU.txt
+ - third_party/LICENSE_Emscripten.txt
+ - third_party/LICENSE_LLGI.txt
+ - third_party/LICENSE_Maximilian.txt
+ - third_party/LICENSE_Maximilian_Bundled_Notices.txt
+ - third_party/LICENSE_Maximilian_PolyBLEP.txt
+ - third_party/LICENSE_Maximilian_stb_vorbis.txt
+ - third_party/LICENSE_Noto_Sans_JP.txt
+ - third_party/LICENSE_WebGPU_Headers.txt
+ - third_party/LICENSE_Web_CompilerRT.txt
+ - third_party/LICENSE_Web_Emscripten_Bundled_Notices.txt
+ - third_party/LICENSE_Web_LLVM_Libc.txt
+ - third_party/LICENSE_Web_Libcxx.txt
+ - third_party/LICENSE_Web_Libcxxabi.txt
+ - third_party/LICENSE_Web_Libunwind.txt
+ - third_party/LICENSE_Web_Musl.txt
+ - third_party/LICENSE_Web_Musl_Bundled_Notices.txt
+ - third_party/LICENSE_Web_dlmalloc.txt
+ - third_party/LICENSE_miniaudio.txt
+ - third_party/LICENSE_pl_mpeg.txt
+ - third_party/LICENSE_rapidjson.txt
+ - third_party/LICENSE_simdjson.txt
+ - third_party/LICENSE_simdjson_Dragonbox.txt
+ - third_party/LICENSE_simdjson_PyTorch.txt
+ - third_party/LICENSE_simdjson_Web_Source_Notices.txt
+ - third_party/LICENSE_stb_image.txt
+ - third_party/NOTICE_WebRuntime.txt

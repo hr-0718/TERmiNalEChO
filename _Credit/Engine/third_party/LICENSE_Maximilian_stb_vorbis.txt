@@ -1,0 +1,33 @@
+stb_vorbis 0.99996 bundled with Maximilian
+Decoder: public-domain dedication by Sean Barrett, April 2007.
+Source: Source/Engine/Library/Maximilian/libs/stb_vorbis.c
+
+Original decoder source notice (verbatim):
+
+// Ogg Vorbis I audio decoder  -- version 0.99996
+//
+// Written in April 2007 by Sean Barrett, sponsored by RAD Game Tools.
+//
+// Placed in the public domain April 2007 by the author: no copyright is
+// claimed, and you may use it for any purpose you like.
+//
+// No warranty for any purpose is expressed or implied by the author (nor
+// by RAD Game Tools). Report bugs and send enhancements to the author.
+//
+// Get the latest version and other information at:
+//     http://nothings.org/stb_vorbis/
+
+The local split header also carries the following packaging attribution.
+Its original notice is retained here; the enclosing Maximilian MIT license
+is provided separately in LICENSE_Maximilian.txt.
+Source: Source/Engine/Library/Maximilian/libs/stb_vorbis.h
+
+Original split-header notice (verbatim):
+
+//
+//  stb_vorbis.h
+//  oggdecode
+//
+//  Created by Michael Grierson on 04/04/2012.
+//  Copyright (c) 2012 goldsmiths college. All rights reserved.
+//
