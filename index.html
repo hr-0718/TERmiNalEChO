@@ -229,10 +229,79 @@ function createHREUserStorage(module, projectId, notify) {
     window.addEventListener('error', event => fail(event.error || event.message));
     window.addEventListener('unhandledrejection', event => fail(event.reason));
     const pageRoot = new URL('./', window.location.href);
+    // The Web build stores most pack entries zlib-compressed and then encoded
+    // (ToolProject/Cook/WebTransportPack.h; table flag 1, payload = u64 size + zlib).
+    // Restore the plain PACK v2 image the engine reads, using the browser's own
+    // DecompressionStream. A pack without such entries is returned unchanged.
+    async function restoreAssetPack(source, size) {
+      const view = () => new DataView(Module.HEAPU8.buffer);
+      const u64 = (at) => view().getUint32(at, true) + view().getUint32(at + 4, true) * 4294967296;
+      if (String.fromCharCode(...Module.HEAPU8.subarray(source, source + 4)) !== 'PACK') return { pointer: source, size };
+      const count = view().getUint32(source + 12, true);
+      const entries = [];
+      let at = source + 16, packed = false;
+      for (let i = 0; i < count; ++i) {
+        const length = view().getUint32(at, true);
+        const table = at + 4 + length;
+        const entry = { table: at - source, length, offset: u64(table), size: u64(table + 8),
+          seedLow: view().getUint32(table + 16, true), seedHigh: view().getUint32(table + 20, true),
+          compressed: Module.HEAPU8[table + 24] };
+        if (entry.offset + entry.size > size) throw new Error('Assets.pack entry is out of range.');
+        packed = packed || entry.compressed === 1;
+        entries.push(entry);
+        at = table + 25;
+      }
+      if (!packed) return { pointer: source, size };
+      const metadata = at - source;
+      let total = metadata;
+      for (const entry of entries) {
+        if (entry.compressed === 1) {
+          if (entry.size < 8) throw new Error('Assets.pack entry is invalid.');
+          Module._hre_asset_pack_codec(source + entry.offset, entry.size, entry.seedLow, entry.seedHigh);
+          entry.expanded = u64(source + entry.offset);
+        } else entry.expanded = entry.size;
+        total += entry.expanded;
+      }
+      statusText.textContent = 'Preparing game assets…';
+      const target = Module._malloc(total);
+      if (!target) throw new Error('Insufficient memory for the game asset pack.');
+      try {
+        Module.HEAPU8.copyWithin(target, source, source + metadata);
+        let offset = metadata, done = 0;
+        for (const entry of entries) {
+          const row = target + entry.table + 4 + entry.length;
+          view().setUint32(row, offset % 4294967296, true);view().setUint32(row + 4, Math.floor(offset / 4294967296), true);
+          view().setUint32(row + 8, entry.expanded % 4294967296, true);view().setUint32(row + 12, Math.floor(entry.expanded / 4294967296), true);
+          Module.HEAPU8[row + 24] = 0;
+          entry.target = offset;offset += entry.expanded;
+        }
+        // Inflate a few entries at a time; each writes only its own range.
+        const inflate = async entry => {
+          const begin = source + entry.offset;
+          if (entry.compressed !== 1) { Module.HEAPU8.copyWithin(target + entry.target, begin, begin + entry.size);++done;return; }
+          const input = Module.HEAPU8.slice(begin + 8, begin + entry.size);
+          const reader = new Blob([input]).stream().pipeThrough(new DecompressionStream('deflate')).getReader();
+          let written = 0;
+          while (true) {
+            const result = await reader.read();
+            if (result.done) break;
+            if (written + result.value.length > entry.expanded) throw new Error('Assets.pack entry expanded past its size.');
+            Module.HEAPU8.set(result.value, target + entry.target + written);written += result.value.length;
+          }
+          if (written !== entry.expanded) throw new Error('Assets.pack entry is incomplete.');
+          Module._hre_asset_pack_codec(target + entry.target, entry.expanded, entry.seedLow, entry.seedHigh);
+          statusText.textContent = 'Preparing game assets… ' + Math.floor(++done / entries.length * 100) + '%';
+        };
+        let next = 0;
+        await Promise.all(Array.from({ length: 6 }, async () => { while (next < entries.length) await inflate(entries[next++]); }));
+      } catch (error) { Module._free(target);throw error; }
+      return { pointer: target, size: total };
+    }
     if (true) document.getElementById('credit').hidden = false;
     var Module = {
       canvas,
       hreProjectId: "70069eec-b84b-42ed-8a83-4a7c25b1ca81",
+      hreAssetPackBytes: 20913245,
       locateFile: file => new URL(file, pageRoot).href,
       print: text => console.log(text),
       printErr: text => console.error(text),
@@ -270,36 +339,73 @@ function createHREUserStorage(module, projectId, notify) {
           await Module.hreUserStorage.initialize();
           const response = await fetch(new URL('Assets.pack', pageRoot));
           if (!response.ok) throw new Error('Assets.pack: HTTP ' + response.status);
-          const total = Number(response.headers.get('Content-Length'));
-          // One browser allocation and one Wasm allocation, released after transfer.
-          // No MEMFS copy is created. Progress is indeterminate where size is unknown.
-          let bytes;
-          if (response.body && total > 0 && !response.headers.get('Content-Encoding')) {
-            bytes = new Uint8Array(total);
-            const reader = response.body.getReader();
-            let received = 0;
-            while (true) {
-              const result = await reader.read();
-              if (result.done) break;
-              if (received + result.value.length > total) throw new Error('Assets.pack length changed during download.');
-              bytes.set(result.value, received);received += result.value.length;
-              progress.max = total;progress.value = received;
-              statusText.textContent = 'Loading game assets… ' + Math.floor(received / total * 100) + '%';
-            }
-            if (received !== total) throw new Error('Assets.pack download was incomplete.');
-          } else {
+          // Hosts such as GitHub Pages gzip every response, so Content-Length is then the
+          // transfer size. The packaged size (written by the build) still gives real progress.
+          const encoded = !!response.headers.get('Content-Encoding');
+          const length = Number(response.headers.get('Content-Length'));
+          const packaged = Number(Module.hreAssetPackBytes) || 0;
+          const exact = !encoded && length > 0;
+          const total = exact ? length : packaged;
+          const megabytes = value => (value / 1048576).toFixed(0);
+          let known = total;
+          const report = received => {
+            if (known > 0) {
+              progress.max = known;progress.value = Math.min(received, known);
+              statusText.textContent = 'Loading game assets… ' + Math.min(100, Math.floor(received / known * 100)) + '% (' + megabytes(received) + ' / ' + megabytes(known) + ' MB)';
+            } else statusText.textContent = 'Loading game assets… ' + megabytes(received) + ' MB';
+          };
+          // The download streams straight into one Wasm allocation: no second full copy
+          // in JavaScript (and no MEMFS copy), which matters on phones. When the size is
+          // unknown, or a stale page reports the wrong size, chunks are kept and joined.
+          let pointer = 0, capacity = 0, received = 0, chunks = null;
+          const keepChunks = () => {
+            chunks = [];
+            if (pointer && received) chunks.push(Module.HEAPU8.slice(pointer, pointer + received));
+            if (pointer) Module._free(pointer);
+            pointer = 0;capacity = 0;known = 0;
             progress.removeAttribute('value');
-            bytes = new Uint8Array(await response.arrayBuffer());
+          };
+          try {
+            if (total >= 16 && response.body) {
+              pointer = Module._malloc(total);
+              if (!pointer) throw new Error('Insufficient memory for the game asset pack.');
+              capacity = total;
+            } else chunks = [];
+            if (response.body) {
+              const reader = response.body.getReader();
+              while (true) {
+                const result = await reader.read();
+                if (result.done) break;
+                const chunk = result.value;
+                if (!chunks && received + chunk.length > capacity) {
+                  if (exact) throw new Error('Assets.pack length changed during download.');
+                  keepChunks();
+                }
+                if (chunks) chunks.push(chunk);
+                else Module.HEAPU8.set(chunk, pointer + received);
+                received += chunk.length;
+                report(received);
+              }
+            } else {
+              chunks.push(new Uint8Array(await response.arrayBuffer()));
+              received = chunks[0].length;
+            }
+            if (exact && received !== total) throw new Error('Assets.pack download was incomplete.');
+            if (received < 16) throw new Error('Assets.pack is empty or invalid.');
+            if (chunks) {
+              pointer = Module._malloc(received);
+              if (!pointer) throw new Error('Insufficient memory for the game asset pack.');
+              let offset = 0;
+              for (const chunk of chunks) { Module.HEAPU8.set(chunk, pointer + offset);offset += chunk.length; }
+              chunks = null;
+            }
+            const image = await restoreAssetPack(pointer, received);
+            if (image.pointer !== pointer) { Module._free(pointer);pointer = image.pointer;received = image.size; }
+            if (!Module._hre_mount_asset_pack(pointer, received)) throw new Error('The game rejected Assets.pack.');
+            pointer = 0;
+          } finally {
+            if (pointer) Module._free(pointer);
           }
-          if (bytes.length < 16) throw new Error('Assets.pack is empty or invalid.');
-          const pointer = Module._malloc(bytes.length);
-          if (!pointer) throw new Error('Insufficient memory for the game asset pack.');
-          Module.HEAPU8.set(bytes, pointer);
-          if (!Module._hre_mount_asset_pack(pointer, bytes.length)) {
-            Module._free(pointer);
-            throw new Error('The game rejected Assets.pack.');
-          }
-          bytes = null;
           statusText.textContent = 'Starting game…';
           Module.removeRunDependency('hre-assets');
         })().catch(fail);

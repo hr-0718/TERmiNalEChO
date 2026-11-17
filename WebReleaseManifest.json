@@ -119,8 +119,8 @@
                   },
                   {
                       "path":  "index.html",
-                      "sha256":  "c23101dfc84ed7cb8f82b0485d3d225915b89441755cb1426b51e976aaca929b",
-                      "bytes":  18444
+                      "sha256":  "0ebb3dd2f081ae86ce10079cc0296b5b5167304b1567f45b4ef2c0f3df5c0753",
+                      "bytes":  24769
                   },
                   {
                       "path":  "_Credit/Game/third_party.txt",
@@ -129,13 +129,13 @@
                   },
                   {
                       "path":  "WebSizeReport.json",
-                      "sha256":  "0025b8dcba564b914ac5b45f9e9aeac5c467e418fc071cfe84172f191ffb8e6e",
-                      "bytes":  206928
+                      "sha256":  "35b04b607f192e4507b9b652fe246521b7d83e2945d3907331d079eb13de6c0e",
+                      "bytes":  218048
                   },
                   {
                       "path":  "HREngine.wasm",
-                      "sha256":  "651b77e7665d0cde56907105825a45b13aca486b43ea0c8f6c342ba4a2f4876d",
-                      "bytes":  5579578
+                      "sha256":  "8b0b07614e4effdd47c94219ddbf47d15725c17bd427e61de64a5c6197256039",
+                      "bytes":  5595786
                   },
                   {
                       "path":  ".nojekyll",
@@ -149,13 +149,13 @@
                   },
                   {
                       "path":  "Assets.pack",
-                      "sha256":  "fa54064e1ecc83944f94a7f0b62f94edc0da02703bb03b8a5810f470fb34f3d7",
-                      "bytes":  94139306
+                      "sha256":  "a2b4f8809db734feac986b945bbd20af7a2fe7a576f1a55cfce0e4524df04bd3",
+                      "bytes":  20913245
                   },
                   {
                       "path":  "HREngine.js",
-                      "sha256":  "a061e0afeb878095cbc4552a6ed14d86d9f7c98510ee91d54be6b19ec9580e51",
-                      "bytes":  194826
+                      "sha256":  "f67343e1b85fcef9906582e6f4a335cc8e9b6dbe6e1d4b1218698807d1fd7ba3",
+                      "bytes":  195117
                   },
                   {
                       "path":  "Credits.html",
