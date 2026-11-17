@@ -119,7 +119,7 @@
                   },
                   {
                       "path":  "index.html",
-                      "sha256":  "090ca01eb25e553eb85b801e87b2c5ab1b2e9733e1a968cf0d4463f8c1818f98",
+                      "sha256":  "9307e9a4e1ff68739522e483ce6749e91ae6c4095fe8e2883f483501fb5b771c",
                       "bytes":  26868
                   },
                   {
@@ -129,13 +129,13 @@
                   },
                   {
                       "path":  "WebSizeReport.json",
-                      "sha256":  "ec58f2410de0e2174f95760786ac5dd7320f52f6ed8021fad6ec26b26c612e48",
-                      "bytes":  257223
+                      "sha256":  "3ed6b8b58e81913083ae2414140ea44f7c73cfce13cf8f98045e875caed88f08",
+                      "bytes":  262264
                   },
                   {
                       "path":  "HREngine.wasm",
-                      "sha256":  "86c120bd170364124aa189c77d13cf3de59f08afd4b8f87078ff3f5dc2a4f189",
-                      "bytes":  5675987
+                      "sha256":  "0bb97381828ab257c6a7fc0b506e9d2c4b94f154a3fbc36ca3e554a7d298b6d6",
+                      "bytes":  5714077
                   },
                   {
                       "path":  ".nojekyll",
@@ -149,12 +149,12 @@
                   },
                   {
                       "path":  "Assets.pack",
-                      "sha256":  "179f3ec549f15dd6f1b95072c73883a377302383450d8c9dc8d9667e164f0ec1",
-                      "bytes":  27664553
+                      "sha256":  "2460963f355b9dd7dfcb24da45b235742575bef922de00d6d77fc95414346930",
+                      "bytes":  27741821
                   },
                   {
                       "path":  "HREngine.js",
-                      "sha256":  "6d036127fd51f7f3d8366459eba82274292de4e4beac8c72d7310644c58c7cfd",
+                      "sha256":  "3ba3031de27bc27dbb2a3a087c209a998d5a6830235fbc5cbfec3efdc04211cd",
                       "bytes":  194693
                   },
                   {
