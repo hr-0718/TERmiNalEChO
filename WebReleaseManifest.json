@@ -8,24 +8,14 @@
     "entryPoint":  "index.html",
     "files":  [
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_simdjson_PyTorch.txt",
-                      "sha256":  "d7ea4ab7943774b8b3c2b4f89f4e2c491586bf0e44a39032a5e780dc9c3578f0",
-                      "bytes":  2311
-                  },
-                  {
-                      "path":  "_Credit/Engine/third_party/LICENSE_simdjson_Dragonbox.txt",
-                      "sha256":  "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
-                      "bytes":  1337
-                  },
-                  {
                       "path":  "_Credit/Engine/third_party/LICENSE_simdjson_Web_Source_Notices.txt",
                       "sha256":  "f89cb8d881b4949793d5dbf5183be91444e5f641fb7c222047ae4e6915cd9a69",
                       "bytes":  14034
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_WebGPU_Headers.txt",
-                      "sha256":  "e213273be4a6a6da276757cb5bb728de139014b947f345b8af60253837ee6f14",
-                      "bytes":  1616
+                      "path":  "_Credit/Engine/third_party/LICENSE_simdjson_PyTorch.txt",
+                      "sha256":  "d7ea4ab7943774b8b3c2b4f89f4e2c491586bf0e44a39032a5e780dc9c3578f0",
+                      "bytes":  2311
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_stb_image.txt",
@@ -33,19 +23,19 @@
                       "bytes":  2674
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_simdjson.txt",
-                      "sha256":  "9ed0a34979f22fc33fc13d942233f22d44906c236d876bd05fadf18cb5abf7da",
-                      "bytes":  1065
+                      "path":  "_Credit/Engine/third_party/LICENSE_Web_CompilerRT.txt",
+                      "sha256":  "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d",
+                      "bytes":  16708
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_miniaudio.txt",
-                      "sha256":  "cf00884e3bae1ec7b49e96bc014079f5b4c803987586b894ac431779927c67b3",
-                      "bytes":  2643
+                      "path":  "_Credit/Engine/third_party/LICENSE_WebGPU_Headers.txt",
+                      "sha256":  "e213273be4a6a6da276757cb5bb728de139014b947f345b8af60253837ee6f14",
+                      "bytes":  1616
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Maximilian_stb_vorbis.txt",
-                      "sha256":  "4440d0747c819efe054b1a6f12921921b22fa8aaa2c5188fedc5fa4c1320219a",
-                      "bytes":  1195
+                      "path":  "_Credit/Engine/third_party/LICENSE_simdjson_Dragonbox.txt",
+                      "sha256":  "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+                      "bytes":  1337
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_Noto_Sans_JP.txt",
@@ -53,9 +43,9 @@
                       "bytes":  4481
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_rapidjson.txt",
-                      "sha256":  "55972017b8f8bffee8922b5be4ba582ac401a3b70b5e62a4b8fbea56342b0500",
-                      "bytes":  5209
+                      "path":  "_Credit/Engine/third_party/LICENSE_miniaudio.txt",
+                      "sha256":  "cf00884e3bae1ec7b49e96bc014079f5b4c803987586b894ac431779927c67b3",
+                      "bytes":  2643
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_pl_mpeg.txt",
@@ -63,29 +53,14 @@
                       "bytes":  1070
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Web_Musl.txt",
-                      "sha256":  "b870108ec5e7790e9f9919064f1b9421d62d5f9b0e6c230c6adf7ea2da62e97b",
-                      "bytes":  6196
+                      "path":  "_Credit/Engine/third_party/LICENSE_simdjson.txt",
+                      "sha256":  "9ed0a34979f22fc33fc13d942233f22d44906c236d876bd05fadf18cb5abf7da",
+                      "bytes":  1065
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Web_LLVM_Libc.txt",
-                      "sha256":  "ebcd9bbf783a73d05c53ba4d586b8d5813dcdf3bbec50265860ccc885e606f47",
-                      "bytes":  15140
-                  },
-                  {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Web_Musl_Bundled_Notices.txt",
-                      "sha256":  "b9740855e872cd7b07c30fcc7e0b909103b75ad18c49ef313796c1fe52a2d9c0",
-                      "bytes":  138719
-                  },
-                  {
-                      "path":  "_Credit/Engine/third_party/NOTICE_WebRuntime.txt",
-                      "sha256":  "319f1413ee76facd28790f8b965eef8e34da2b3becef7a0244f3c640124797eb",
-                      "bytes":  2010
-                  },
-                  {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Web_Libunwind.txt",
-                      "sha256":  "b5efebcaca80879234098e52d1725e6d9eb8fb96a19fce625d39184b705f7b6d",
-                      "bytes":  16706
+                      "path":  "_Credit/Engine/third_party/LICENSE_rapidjson.txt",
+                      "sha256":  "55972017b8f8bffee8922b5be4ba582ac401a3b70b5e62a4b8fbea56342b0500",
+                      "bytes":  5209
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_Web_dlmalloc.txt",
@@ -93,9 +68,34 @@
                       "bytes":  448
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Web_CompilerRT.txt",
-                      "sha256":  "1a8f1058753f1ba890de984e48f0242a3a5c29a6a8f2ed9fd813f36985387e8d",
-                      "bytes":  16708
+                      "path":  "_Credit/Engine/third_party/NOTICE_WebRuntime.txt",
+                      "sha256":  "319f1413ee76facd28790f8b965eef8e34da2b3becef7a0244f3c640124797eb",
+                      "bytes":  2010
+                  },
+                  {
+                      "path":  "_Credit/Engine/third_party/LICENSE_Web_Musl_Bundled_Notices.txt",
+                      "sha256":  "b9740855e872cd7b07c30fcc7e0b909103b75ad18c49ef313796c1fe52a2d9c0",
+                      "bytes":  138719
+                  },
+                  {
+                      "path":  "Files/teruneko-fill.png",
+                      "sha256":  "9d1a4b1f70bb5aee83970158634e3d123b6aa3fac4a483b8a3e92fb9ff6aa5b5",
+                      "bytes":  22983
+                  },
+                  {
+                      "path":  "Files/teruneko-line.png",
+                      "sha256":  "b66d8a15939ca519699457a990938dc8740c6494b4d68aafe81d62df71a781e4",
+                      "bytes":  14424
+                  },
+                  {
+                      "path":  "_Credit/Engine/third_party/LICENSE_Web_Musl.txt",
+                      "sha256":  "b870108ec5e7790e9f9919064f1b9421d62d5f9b0e6c230c6adf7ea2da62e97b",
+                      "bytes":  6196
+                  },
+                  {
+                      "path":  "_Credit/Engine/third_party/LICENSE_Web_Libcxx.txt",
+                      "sha256":  "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b",
+                      "bytes":  16703
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_Web_Emscripten_Bundled_Notices.txt",
@@ -108,9 +108,19 @@
                       "bytes":  16706
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Web_Libcxx.txt",
-                      "sha256":  "539dd7aed86e8a4f12cbdd0e6c50c189c7d74847e4fecc64ce2c6ee3a01da38b",
-                      "bytes":  16703
+                      "path":  "_Credit/Engine/third_party/LICENSE_Web_LLVM_Libc.txt",
+                      "sha256":  "ebcd9bbf783a73d05c53ba4d586b8d5813dcdf3bbec50265860ccc885e606f47",
+                      "bytes":  15140
+                  },
+                  {
+                      "path":  "_Credit/Engine/third_party/LICENSE_Web_Libunwind.txt",
+                      "sha256":  "b5efebcaca80879234098e52d1725e6d9eb8fb96a19fce625d39184b705f7b6d",
+                      "bytes":  16706
+                  },
+                  {
+                      "path":  "_Credit/Engine/third_party/LICENSE_Maximilian_stb_vorbis.txt",
+                      "sha256":  "4440d0747c819efe054b1a6f12921921b22fa8aaa2c5188fedc5fa4c1320219a",
+                      "bytes":  1195
                   },
                   {
                       "path":  "README-Web.txt",
@@ -119,23 +129,23 @@
                   },
                   {
                       "path":  "index.html",
-                      "sha256":  "9307e9a4e1ff68739522e483ce6749e91ae6c4095fe8e2883f483501fb5b771c",
-                      "bytes":  26868
+                      "sha256":  "b4a6a6ca61ecd2ac8d99b292ec2f4e2137b1b85b5d32e661ac657227e7282d62",
+                      "bytes":  40413
                   },
                   {
                       "path":  "_Credit/Game/third_party.txt",
-                      "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-                      "bytes":  0
+                      "sha256":  "06c5c7f34ac995ac903b78f7959b16dc19ea9da6aa68193e38db35202640fc1d",
+                      "bytes":  283
                   },
                   {
                       "path":  "WebSizeReport.json",
-                      "sha256":  "3ed6b8b58e81913083ae2414140ea44f7c73cfce13cf8f98045e875caed88f08",
-                      "bytes":  262264
+                      "sha256":  "90a247040e25e3194cad2d9cc157058425bd4adfec23142755019b16ae7df82e",
+                      "bytes":  266537
                   },
                   {
                       "path":  "HREngine.wasm",
-                      "sha256":  "0bb97381828ab257c6a7fc0b506e9d2c4b94f154a3fbc36ca3e554a7d298b6d6",
-                      "bytes":  5714077
+                      "sha256":  "a5125ec1a5ebe84b9ede236c6b4f27e36ed8923db0c48df61922d3d21519d0d5",
+                      "bytes":  5734241
                   },
                   {
                       "path":  ".nojekyll",
@@ -149,18 +159,23 @@
                   },
                   {
                       "path":  "Assets.pack",
-                      "sha256":  "2460963f355b9dd7dfcb24da45b235742575bef922de00d6d77fc95414346930",
-                      "bytes":  27741821
+                      "sha256":  "1fa2a5ceb789de73cbfbe2069a0e7681eb588f87fb2d953356033e11e039058d",
+                      "bytes":  28461501
                   },
                   {
                       "path":  "HREngine.js",
-                      "sha256":  "3ba3031de27bc27dbb2a3a087c209a998d5a6830235fbc5cbfec3efdc04211cd",
+                      "sha256":  "67e41d826436fc4432d71447b7ab57de6fd4640acad5f56b65fde72bb30e1e05",
                       "bytes":  194693
                   },
                   {
                       "path":  "Credits.html",
-                      "sha256":  "5033b315dececd068a72836f7d0cc9e874e9ade279858215ebc50bd86daf744d",
-                      "bytes":  4073
+                      "sha256":  "eba678ac98f3be74b57855867dc7c6d26efa51d7eb44e62a84c77af8a772ca85",
+                      "bytes":  4165
+                  },
+                  {
+                      "path":  "_Credit/Game/ZenKakuGothicNew-OFL.txt",
+                      "sha256":  "0fac78a235c98d640cb06332eb5362c211d86fa03c011df438c35005d22ad2c7",
+                      "bytes":  4401
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_LLGI.txt",

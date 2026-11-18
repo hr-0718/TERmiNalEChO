@@ -1,0 +1,8 @@
+[HRStudio managed credits begin]
+Zen Kaku Gothic New (Bold)
+Author: The Zen Kaku Gothic Project Authors
+License: SIL Open Font License, Version 1.1
+Source: https://fonts.google.com/specimen/Zen+Kaku+Gothic+New
+Notice: ZenKakuGothicNew-OFL.txt
+
+[HRStudio managed credits end]

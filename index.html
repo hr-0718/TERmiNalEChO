@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TerNechoGame</title>
+  <title>Terminal Echo生産秘録（仮）</title>
   <link rel="icon" href="data:,">
   <style>
     html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101218;color:#eee;font:16px system-ui,sans-serif}
@@ -15,6 +15,9 @@
     #hre-footer{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:12px;box-sizing:border-box;padding:6px 12px;color:#dbe8fa;font-size:12px;line-height:1.4;pointer-events:none}
     #hre-footer>*{pointer-events:auto;white-space:nowrap}#hre-footer a{color:inherit}
     body.hre-footer-empty #hre-footer{display:none}
+    /* Start screen. Config/Web/Start.html may replace its content (#start, #status and #error
+       are required; #progress and #hre-progress-detail are optional). While starting, the engine
+       sets data-hre-phase, data-hre-progress and --hre-progress (0 to 1) on #loading. */
     #loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#101218;z-index:1}
     #panel{max-width:38rem;padding:2rem;text-align:center}h1{font-size:1.6rem}p{line-height:1.5;white-space:pre-wrap}
     button{border:0;border-radius:.4rem;background:#a4d0ff;color:#111;padding:.8rem 2rem;font:inherit;cursor:pointer}
@@ -22,13 +25,153 @@
     #save-status{position:absolute;bottom:calc(var(--hre-footer-band,0px) + 8px);left:12px;max-width:65%;color:#ffb4b4;font-size:13px;pointer-events:none;background:#101218cc}
   </style>
   <style>
+/* TerNechoGame の起動ページ。エンジンの既定（WebPackage.index.html）の後に入る。
+   起動前の画面の中身は Start.html、絵は Files/（_aiProject/game/tools/make_web_start.py で作る）。
+   色はゲームの UI（TernechoUI.cpp の kCyan・kEmerald・kDim）に合わせる。 */
+:root{--tn-navy:#040b14;--tn-cyan:#73f2ff;--tn-emerald:#4dffbf;--tn-dim:#bfd1e0;--tn-red:#ff8a80;
+  --tn-sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Meiryo","Noto Sans JP",system-ui,sans-serif;
+  --tn-mono:ui-monospace,"SFMono-Regular","Cascadia Mono",Consolas,"Roboto Mono",monospace}
+html,body{background:var(--tn-navy)}
+/* 起動前の画面の上にも、フッター（© とライセンス）を出す。帯の時は、その分だけ画面を詰める */
+#hre-footer{z-index:2;color:#9fbccd}
+#loading{bottom:var(--hre-footer-band,0px);background:var(--tn-navy)}
+
+.tn-start{position:absolute;inset:0;overflow:hidden;color:#d8e8f2;font-family:var(--tn-sans);font-feature-settings:"palt";
+  background:radial-gradient(ellipse 90% 60% at 50% 40%,#0c2536 0%,#071827 42%,#040b14 100%)}
+.tn-grid{position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(115,242,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(115,242,255,.06) 1px,transparent 1px);
+  background-size:28px 28px;background-position:center;
+  -webkit-mask-image:radial-gradient(ellipse 70% 55% at 50% 42%,#000 20%,transparent 80%);mask-image:radial-gradient(ellipse 70% 55% at 50% 42%,#000 20%,transparent 80%)}
+/* 四隅の目盛り。フッターを左右の余白に置く時は、下の角をフッターの上へずらす */
+.tn-start::before,.tn-start::after{content:"";position:absolute;inset:10px;pointer-events:none;
+  background:linear-gradient(var(--tn-cyan),var(--tn-cyan)) left top/18px 1px no-repeat,linear-gradient(var(--tn-cyan),var(--tn-cyan)) left top/1px 18px no-repeat,
+    linear-gradient(var(--tn-cyan),var(--tn-cyan)) right top/18px 1px no-repeat,linear-gradient(var(--tn-cyan),var(--tn-cyan)) right top/1px 18px no-repeat,
+    linear-gradient(var(--tn-cyan),var(--tn-cyan)) left bottom/18px 1px no-repeat,linear-gradient(var(--tn-cyan),var(--tn-cyan)) left bottom/1px 18px no-repeat,
+    linear-gradient(var(--tn-cyan),var(--tn-cyan)) right bottom/18px 1px no-repeat,linear-gradient(var(--tn-cyan),var(--tn-cyan)) right bottom/1px 18px no-repeat;opacity:.45}
+.tn-start::after{inset:10px 40px auto;height:6px;opacity:.22;
+  background:repeating-linear-gradient(90deg,var(--tn-cyan) 0 1px,transparent 1px 12px)}
+
+.tn-top{position:absolute;top:24px;left:24px;right:24px;display:flex;justify-content:space-between;align-items:center;gap:8px;
+  font:500 10px/1 var(--tn-mono);letter-spacing:.18em;color:rgba(115,242,255,.85)}
+.tn-tag{display:inline-flex;align-items:center;gap:7px;padding:5px 8px;border:1px solid rgba(115,242,255,.3);background:rgba(4,20,30,.5);white-space:nowrap}
+.tn-tag i{width:6px;height:6px;background:var(--tn-emerald);box-shadow:0 0 6px var(--tn-emerald)}
+.tn-tag-sub{color:rgba(191,209,224,.55);border-color:rgba(191,209,224,.18)}
+
+.tn-body{position:relative;height:100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:clamp(14px,3.2vh,30px);padding:64px 24px 32px}
+.tn-art{position:relative;width:min(64vw,36vh,300px);aspect-ratio:1;flex:none}
+.tn-dial{position:absolute;inset:0;width:100%;height:100%;overflow:visible;animation:tn-turn 80s linear infinite}
+.tn-dial circle,.tn-dial path{fill:none;stroke:var(--tn-cyan)}
+.tn-dial-ring{stroke-width:.6;opacity:.45}
+.tn-dial-ticks{stroke-width:5;stroke-dasharray:.8 9.67;opacity:.28}
+.tn-dial-inner{stroke-width:.5;stroke-dasharray:3 5;opacity:.3}
+.tn-dial-cross{stroke-width:.8;opacity:.6}
+.tn-cat{position:absolute;inset:15% 13% 11%;filter:drop-shadow(0 0 5px rgba(77,255,191,.5))}
+.tn-cat>div{position:absolute;inset:0;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.tn-cat-fill{-webkit-mask-image:url(Files/teruneko-fill.png);mask-image:url(Files/teruneko-fill.png);
+  background:repeating-linear-gradient(0deg,rgba(115,242,255,.16) 0 1px,transparent 1px 4px),linear-gradient(180deg,rgba(115,242,255,.24),rgba(77,255,191,.06))}
+.tn-cat-line{-webkit-mask-image:url(Files/teruneko-line.png);mask-image:url(Files/teruneko-line.png);background:linear-gradient(180deg,var(--tn-cyan),var(--tn-emerald))}
+.tn-scan{position:absolute;left:8%;right:8%;top:20%;height:1px;opacity:.7;
+  background:linear-gradient(90deg,transparent,var(--tn-emerald),transparent);box-shadow:0 0 8px var(--tn-emerald);animation:tn-scan 3.6s ease-in-out infinite}
+
+.tn-text{width:100%;max-width:32rem;text-align:center}
+.tn-text p{margin:0;white-space:normal}
+.tn-over{font:500 11px/1 var(--tn-mono);letter-spacing:.42em;color:rgba(77,255,191,.9);margin-bottom:10px!important}
+.tn-title{margin:0;white-space:nowrap;font-size:clamp(21px,6.4vw,34px);line-height:1.2;font-weight:700;letter-spacing:.03em;color:#eef8ff;text-shadow:0 0 18px rgba(115,242,255,.25)}
+.tn-title-ja{margin-left:.12em}
+.tn-title small{font-size:.48em;font-weight:500;color:rgba(191,209,224,.7);margin-left:.15em;vertical-align:.25em}
+.tn-lead{font-size:12px;letter-spacing:.24em;color:rgba(191,209,224,.66);margin:10px 0 clamp(18px,3.4vh,28px)!important}
+
+.tn-button{position:relative;display:inline-flex;align-items:center;justify-content:center;min-width:210px;padding:14px 26px;border-radius:2px;
+  border:1px solid rgba(115,242,255,.5);background:linear-gradient(180deg,rgba(18,70,84,.45),rgba(6,30,40,.55));color:#effdff;
+  font:600 17px/1 var(--tn-sans);letter-spacing:.5em;text-indent:.5em;cursor:pointer;box-shadow:0 0 0 1px rgba(4,11,20,.6),0 0 18px rgba(77,255,191,.12);
+  transition:background .15s,border-color .15s,box-shadow .15s,transform .1s;-webkit-tap-highlight-color:transparent}
+.tn-button::before{content:"";position:absolute;inset:-6px;pointer-events:none;
+  background:linear-gradient(var(--tn-emerald),var(--tn-emerald)) left top/10px 2px no-repeat,linear-gradient(var(--tn-emerald),var(--tn-emerald)) left top/2px 10px no-repeat,
+    linear-gradient(var(--tn-emerald),var(--tn-emerald)) right top/10px 2px no-repeat,linear-gradient(var(--tn-emerald),var(--tn-emerald)) right top/2px 10px no-repeat,
+    linear-gradient(var(--tn-emerald),var(--tn-emerald)) left bottom/10px 2px no-repeat,linear-gradient(var(--tn-emerald),var(--tn-emerald)) left bottom/2px 10px no-repeat,
+    linear-gradient(var(--tn-emerald),var(--tn-emerald)) right bottom/10px 2px no-repeat,linear-gradient(var(--tn-emerald),var(--tn-emerald)) right bottom/2px 10px no-repeat}
+.tn-button:hover,.tn-button:focus-visible{border-color:var(--tn-emerald);background:linear-gradient(180deg,rgba(40,120,110,.5),rgba(8,44,48,.6));box-shadow:0 0 0 1px rgba(4,11,20,.6),0 0 24px rgba(77,255,191,.35);outline:none}
+.tn-button:active{transform:scale(.98)}
+.tn-button:disabled{opacity:.55;cursor:default}
+.tn-button[hidden]{display:none}
+.tn-note{margin-top:14px!important;font-size:10.5px;line-height:1.5;color:rgba(191,209,224,.5)}
+#loading:not([data-hre-phase="ready"]) .tn-note{display:none}
+
+.tn-progress{width:min(300px,78vw);margin:0 auto}
+#loading[data-hre-phase="ready"] .tn-progress{display:none}
+.tn-progress-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font:500 11px/1.4 var(--tn-mono);letter-spacing:.06em}
+.tn-status{color:var(--tn-dim);text-align:left}
+.tn-detail{color:var(--tn-cyan);font-variant-numeric:tabular-nums;white-space:nowrap}
+.tn-bar{position:relative;height:2px;margin-top:9px;background:rgba(115,242,255,.14);overflow:visible}
+.tn-bar::before{content:"";position:absolute;left:0;right:0;bottom:4px;height:4px;opacity:.35;background:repeating-linear-gradient(90deg,var(--tn-cyan) 0 1px,transparent 1px 10%)}
+.tn-bar i{position:absolute;inset:0;transform-origin:left;transform:scaleX(var(--hre-progress,0));
+  background:linear-gradient(90deg,var(--tn-cyan),var(--tn-emerald));box-shadow:0 0 8px rgba(77,255,191,.6);transition:transform .25s ease-out}
+#loading:not([data-hre-progress]) .tn-bar i,#loading[data-hre-progress="unknown"] .tn-bar i{width:28%;transform:none;animation:tn-busy 1.3s ease-in-out infinite}
+#loading[data-hre-phase="failed"] .tn-bar{display:none}
+#loading[data-hre-phase="failed"] .tn-status{color:var(--tn-red)}
+#loading[data-hre-phase="failed"] .tn-progress-row{justify-content:center}
+.tn-error{margin-top:10px!important;color:var(--tn-red);font-size:12px;line-height:1.5;white-space:pre-wrap!important;word-break:break-word}
+.tn-error:empty{display:none}
+
+@keyframes tn-turn{to{transform:rotate(360deg)}}
+@keyframes tn-scan{0%,100%{top:18%;opacity:0}10%,90%{opacity:.7}50%{top:86%}}
+@keyframes tn-busy{0%{left:0}50%{left:72%}100%{left:0}}
+@media (prefers-reduced-motion:reduce){.tn-dial,.tn-scan,.tn-bar i{animation:none!important}.tn-scan{display:none}}
+
+/* 横長で背の低い画面（スマホの横）：絵と文字を横に並べる */
+@media (orientation:landscape) and (max-height:560px){
+  .tn-top{top:18px}
+  .tn-body{flex-direction:row;gap:6vw;padding:52px 32px 20px}
+  .tn-art{width:min(62vh,38vw,300px)}
+  .tn-text{text-align:left;max-width:24rem}
+  .tn-title{font-size:clamp(20px,6.4vh,30px)}
+  .tn-lead{margin-bottom:16px!important}
+  .tn-progress{margin:0}
+}
+body.hre-layout-margins:not(.hre-footer-empty) .tn-start::before{bottom:34px}
+/* 狭い画面：札を小さく。とても狭い時は右の札を隠す */
+@media (max-width:479px){.tn-top{left:20px;right:20px;font-size:9px;letter-spacing:.1em}.tn-tag{padding:4px 6px;gap:5px}}
+@media (max-width:339px){.tn-tag-sub{display:none}}
 
   </style>
 </head>
 <body>
   <div id="hre-stage"><canvas id="canvas" tabindex="0" aria-label="Game"></canvas></div>
   <footer id="hre-footer"><span class="hre-footer-left">© L.W. Crab</span><a id="credit" class="hre-footer-right" data-hre-license href="./Credits.html" target="_blank" rel="noopener" hidden>ライセンス</a></footer>
-  <section id="loading"><div id="panel"><h1>TerNechoGame</h1><p id="status">Ready to start.</p><progress id="progress" hidden></progress><p id="error" role="alert"></p><button id="start" type="button">Start</button></div></section>
+  <section id="loading" data-hre-phase="ready"><div class="tn-start">
+  <div class="tn-grid" aria-hidden="true"></div>
+  <header class="tn-top">
+    <span class="tn-tag"><i></i>I.N.D.R.A. MOTHER PLANT</span>
+    <span class="tn-tag tn-tag-sub">T.E. TRAINING PROGRAM</span>
+  </header>
+  <div class="tn-body">
+    <div class="tn-art" aria-hidden="true">
+      <svg class="tn-dial" viewBox="0 0 200 200">
+        <circle cx="100" cy="100" r="92" class="tn-dial-ring"/>
+        <circle cx="100" cy="100" r="80" class="tn-dial-ticks"/>
+        <circle cx="100" cy="100" r="70" class="tn-dial-inner"/>
+        <path d="M100 2v10M100 188v10M2 100h10M188 100h10" class="tn-dial-cross"/>
+        <path d="M35 35l6 6M165 35l-6 6M35 165l6-6M165 165l-6-6" class="tn-dial-cross"/>
+      </svg>
+      <div class="tn-cat"><div class="tn-cat-fill"></div><div class="tn-cat-line"></div></div>
+      <div class="tn-scan"></div>
+    </div>
+    <div class="tn-text">
+      <p class="tn-over">TERMINAL ECHO</p>
+      <h1 class="tn-title">Terminal Echo<span class="tn-title-ja">生産秘録</span><small>（仮）</small></h1>
+      <p class="tn-lead">ターミナル・エコー技師 着任手続き</p>
+      <button id="start" class="tn-button" type="button"><span>はじめる</span></button>
+      <p class="tn-note">音が出ます。ブラウザの決まりで、始めるにはタップが必要です。</p>
+      <div class="tn-progress">
+        <div class="tn-progress-row"><p id="status" class="tn-status" role="status"></p><span id="hre-progress-detail" class="tn-detail"></span></div>
+        <div class="tn-bar"><i></i></div>
+      </div>
+      <p id="error" class="tn-error" role="alert"></p>
+    </div>
+  </div>
+</div>
+</section>
   <span id="save-status" role="status" aria-live="polite"></span>
   <script>
     'use strict';
@@ -223,17 +366,49 @@ function createHREUserStorage(module, projectId, notify) {
     const canvas = document.getElementById('canvas');
     const statusText = document.getElementById('status');
     const progress = document.getElementById('progress');
+    const progressDetail = document.getElementById('hre-progress-detail');
     const start = document.getElementById('start');
     const loading = document.getElementById('loading');
+    // Start screen text. Config/Web/Page.json "start" overrides any of these.
+    const pageText = Object.assign({
+      ready: 'Ready to start.', readyWebGL: 'Ready to start (WebGL 2).', checking: 'Checking graphics…',
+      engine: 'Loading game engine…', loading: 'Loading game assets…', preparing: 'Preparing game assets…',
+      initializing: 'Initializing game…', starting: 'Starting game…', failed: 'Unable to start the game.'
+    }, {"ready":"準備ができました","readyWebGL":"準備ができました（WebGL 2）","checking":"描画の機能を確かめています…","engine":"エンジンを読み込んでいます…","loading":"データを読み込んでいます…","preparing":"データを展開しています…","initializing":"まもなく始まります…","starting":"起動しています…","failed":"起動できませんでした"});
+    // Phases: ready, checking, engine, loading, preparing, initializing, starting, failed.
+    function setPhase(phase, text) {
+      loading.dataset.hrePhase = phase;
+      statusText.textContent = text === undefined ? pageText[phase] : text;
+    }
+    // fraction: 0 to 1, or null while the size is unknown. detail: e.g. "42% (12 / 27 MB)".
+    // Without #hre-progress-detail the detail follows the status text, as before.
+    function setProgress(phase, fraction, detail) {
+      loading.dataset.hrePhase = phase;
+      const known = fraction !== null;
+      const value = known ? Math.max(0, Math.min(1, fraction)) : 0;
+      loading.dataset.hreProgress = known ? 'known' : 'unknown';
+      if (known) loading.style.setProperty('--hre-progress', String(value));
+      else loading.style.removeProperty('--hre-progress');
+      if (progress) {
+        progress.hidden = false;
+        if (progress instanceof HTMLProgressElement) {
+          if (known) { progress.max = 1;progress.value = value; } else progress.removeAttribute('value');
+        }
+      }
+      if (progressDetail) { statusText.textContent = pageText[phase];progressDetail.textContent = detail; }
+      else statusText.textContent = pageText[phase] + (detail ? ' ' + detail : '');
+    }
+    if (!statusText.textContent.trim()) statusText.textContent = pageText.ready;
     let failed = false;
     function fail(error) {
       if (failed) return;
       failed = true;
       loading.hidden = false;
-      loading.style.display = 'flex';
-      statusText.textContent = 'Unable to start the game.';
+      loading.style.display = '';
+      setPhase('failed');
       document.getElementById('error').textContent = String(error && error.message || error);
-      progress.hidden = true;
+      if (progress) progress.hidden = true;
+      if (progressDetail) progressDetail.textContent = '';
       console.error(error);
     }
     window.addEventListener('error', event => fail(event.error || event.message));
@@ -272,7 +447,7 @@ function createHREUserStorage(module, projectId, notify) {
         } else entry.expanded = entry.size;
         total += entry.expanded;
       }
-      statusText.textContent = 'Preparing game assets…';
+      setProgress('preparing', 0, '0%');
       const target = Module._malloc(total);
       if (!target) throw new Error('Insufficient memory for the game asset pack.');
       try {
@@ -300,7 +475,7 @@ function createHREUserStorage(module, projectId, notify) {
           }
           if (written !== entry.expanded) throw new Error('Assets.pack entry is incomplete.');
           Module._hre_asset_pack_codec(target + entry.target, entry.expanded, entry.seedLow, entry.seedHigh);
-          statusText.textContent = 'Preparing game assets… ' + Math.floor(++done / entries.length * 100) + '%';
+          ++done;setProgress('preparing', done / entries.length, Math.floor(done / entries.length * 100) + '%');
         };
         let next = 0;
         await Promise.all(Array.from({ length: 6 }, async () => { while (next < entries.length) await inflate(entries[next++]); }));
@@ -310,7 +485,7 @@ function createHREUserStorage(module, projectId, notify) {
     // Footer layout. pictureAspect is the project's fixed aspect (width / height), 0 when
     // the picture fills the window. "auto" puts the footer items in the side margins when
     // each fits there, otherwise reserves a band below the stage; "band" always reserves it.
-    const pictureAspect = 0.5625;
+    const pictureAspect = 0;
     const footerMode = "auto";
     function layoutPage() {
       const footer = document.getElementById('hre-footer');
@@ -334,7 +509,7 @@ function createHREUserStorage(module, projectId, notify) {
     var Module = {
       canvas,
       hreProjectId: "70069eec-b84b-42ed-8a83-4a7c25b1ca81",
-      hreAssetPackBytes: 27741821,
+      hreAssetPackBytes: 28461501,
       locateFile: file => new URL(file, pageRoot).href,
       print: text => console.log(text),
       printErr: text => console.error(text),
@@ -355,14 +530,14 @@ function createHREUserStorage(module, projectId, notify) {
       hreStarted: function() {
         if (failed) return;
         Module.hreRunning = true;
+        loading.dataset.hrePhase = 'running';
         loading.style.display = 'none';
         canvas.focus();
       },
       hreStopped: function() { Module.hreRunning = false; },
       preRun: [function() {
         Module.addRunDependency('hre-assets');
-        statusText.textContent = 'Loading game assets…';
-        progress.hidden = false;
+        setProgress('loading', null, '');
         (async function() {
           Module.hreUserStorage = createHREUserStorage(Module, Module.hreProjectId, code => {
             document.getElementById('save-status').textContent = code === 2 ? '' :
@@ -382,10 +557,8 @@ function createHREUserStorage(module, projectId, notify) {
           const megabytes = value => (value / 1048576).toFixed(0);
           let known = total;
           const report = received => {
-            if (known > 0) {
-              progress.max = known;progress.value = Math.min(received, known);
-              statusText.textContent = 'Loading game assets… ' + Math.min(100, Math.floor(received / known * 100)) + '% (' + megabytes(received) + ' / ' + megabytes(known) + ' MB)';
-            } else statusText.textContent = 'Loading game assets… ' + megabytes(received) + ' MB';
+            if (known > 0) setProgress('loading', Math.min(received, known) / known, Math.min(100, Math.floor(received / known * 100)) + '% (' + megabytes(received) + ' / ' + megabytes(known) + ' MB)');
+            else setProgress('loading', null, megabytes(received) + ' MB');
           };
           // The download streams straight into one Wasm allocation: no second full copy
           // in JavaScript (and no MEMFS copy), which matters on phones. When the size is
@@ -396,7 +569,6 @@ function createHREUserStorage(module, projectId, notify) {
             if (pointer && received) chunks.push(Module.HEAPU8.slice(pointer, pointer + received));
             if (pointer) Module._free(pointer);
             pointer = 0;capacity = 0;known = 0;
-            progress.removeAttribute('value');
           };
           try {
             if (total >= 16 && response.body) {
@@ -439,13 +611,13 @@ function createHREUserStorage(module, projectId, notify) {
           } finally {
             if (pointer) Module._free(pointer);
           }
-          statusText.textContent = 'Starting game…';
+          setPhase('starting');
           Module.removeRunDependency('hre-assets');
         })().catch(fail);
       }],
       onRuntimeInitialized: function() {
         if (failed) return;
-        statusText.textContent = 'Initializing game…';
+        setPhase('initializing');
       }
     };
     // WebGPU runtime (HREngine) by default. When WebGPU cannot start (no navigator.gpu,
@@ -458,7 +630,7 @@ function createHREUserStorage(module, projectId, notify) {
     // Set when the WebGPU engine itself failed to initialize after the page probe passed.
     const fallbackReason = query.get('hreFallback');
     if (fallbackReason && requested === 'webgl') {
-      statusText.textContent = 'Ready to start (WebGL 2).';
+      setPhase('ready', pageText.readyWebGL);
       console.warn('HRE Web: using the WebGL 2 runtime because WebGPU failed to initialize. ' + fallbackReason);
     }
     async function webgpuProblem() {
@@ -483,7 +655,7 @@ function createHREUserStorage(module, projectId, notify) {
       if (typeof WebAssembly !== 'object') return fail('This browser does not support WebAssembly.');
       let webgl = requested === 'webgl';
       if (!webgl) {
-        statusText.textContent = 'Checking graphics…';
+        setPhase('checking');
         const problem = await webgpuProblem();
         if (problem && requested === 'webgpu') return fail(problem);
         if (problem) {
@@ -492,7 +664,7 @@ function createHREUserStorage(module, projectId, notify) {
           webgl = true;
         }
       } else if (!hasWebGL2()) return fail('WebGL 2 is unavailable in this browser.');
-      statusText.textContent = 'Loading game engine…';
+      setPhase('engine');
       start.hidden = true;
       runtime = webgl ? 'webgl' : 'webgpu';
       const engine = webgl ? 'HREngineGL.js' : 'HREngine.js';
