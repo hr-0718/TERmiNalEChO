@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Terminal Echo生産秘録（仮）</title>
+  <title>そだてるねこ ｜ S.O.D.A. Terminal Echo</title>
   <link rel="icon" href="data:,">
   <style>
     html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#101218;color:#eee;font:16px system-ui,sans-serif}
@@ -25,11 +25,12 @@
     #save-status{position:absolute;bottom:calc(var(--hre-footer-band,0px) + 8px);left:12px;max-width:65%;color:#ffb4b4;font-size:13px;pointer-events:none;background:#101218cc}
   </style>
   <style>
+@font-face{font-family:"TN Murecho";src:url(Files/Murecho-SemiBold-web.woff2) format("woff2");font-weight:400 900;font-display:swap}
 /* TerNechoGame の起動ページ。エンジンの既定（WebPackage.index.html）の後に入る。
    起動前の画面の中身は Start.html、絵は Files/（_aiProject/game/tools/make_web_start.py で作る）。
    色はゲームの UI（TernechoUI.cpp の kCyan・kEmerald・kDim）に合わせる。 */
 :root{--tn-navy:#040b14;--tn-cyan:#73f2ff;--tn-emerald:#4dffbf;--tn-dim:#bfd1e0;--tn-red:#ff8a80;
-  --tn-sans:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Meiryo","Noto Sans JP",system-ui,sans-serif;
+  --tn-sans:"TN Murecho","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Meiryo","Noto Sans JP",system-ui,sans-serif;
   --tn-mono:ui-monospace,"SFMono-Regular","Cascadia Mono",Consolas,"Roboto Mono",monospace}
 html,body{background:var(--tn-navy)}
 /* 起動前の画面の上にも、フッター（© とライセンス）を出す。帯の時は、その分だけ画面を詰める */
@@ -143,7 +144,7 @@ body.hre-layout-margins:not(.hre-footer-empty) .tn-start::before{bottom:34px}
   <div class="tn-grid" aria-hidden="true"></div>
   <header class="tn-top">
     <span class="tn-tag"><i></i>I.N.D.R.A. MOTHER PLANT</span>
-    <span class="tn-tag tn-tag-sub">T.E. TRAINING PROGRAM</span>
+    <span class="tn-tag tn-tag-sub">S.O.D.A. PROGRAM</span>
   </header>
   <div class="tn-body">
     <div class="tn-art" aria-hidden="true">
@@ -158,8 +159,8 @@ body.hre-layout-margins:not(.hre-footer-empty) .tn-start::before{bottom:34px}
       <div class="tn-scan"></div>
     </div>
     <div class="tn-text">
-      <p class="tn-over">TERMINAL ECHO</p>
-      <h1 class="tn-title">Terminal Echo<span class="tn-title-ja">生産秘録</span><small>（仮）</small></h1>
+      <p class="tn-over">S.O.D.A. TERMINAL ECHO</p>
+      <h1 class="tn-title">そだてるねこ</h1>
       <p class="tn-lead">ターミナル・エコー技師 着任手続き</p>
       <button id="start" class="tn-button" type="button"><span>はじめる</span></button>
       <p class="tn-note">音が出ます。ブラウザの決まりで、始めるにはタップが必要です。</p>
@@ -509,7 +510,9 @@ function createHREUserStorage(module, projectId, notify) {
     var Module = {
       canvas,
       hreProjectId: "70069eec-b84b-42ed-8a83-4a7c25b1ca81",
-      hreAssetPackBytes: 28461501,
+      hreAssetPackBytes: 36189076,
+      // Config/Web/Page.json "renderQuality" (null: off). Read once by the engine.
+      hreRenderQuality: {"adaptive":true,"desktopShortSide":1080,"mobileShortSide":720,"minShortSide":480,"targetFps":30},
       locateFile: file => new URL(file, pageRoot).href,
       print: text => console.log(text),
       printErr: text => console.error(text),

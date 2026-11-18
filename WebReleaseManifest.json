@@ -18,9 +18,9 @@
                       "bytes":  2311
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_stb_image.txt",
-                      "sha256":  "7587efcca32db8f95bf5860dea6dfa4be410ee723e1964db3689c8ddf2a2e4a9",
-                      "bytes":  2674
+                      "path":  "_Credit/Engine/third_party/LICENSE_simdjson_Dragonbox.txt",
+                      "sha256":  "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
+                      "bytes":  1337
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_Web_CompilerRT.txt",
@@ -33,9 +33,9 @@
                       "bytes":  1616
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_simdjson_Dragonbox.txt",
-                      "sha256":  "8d8291caf1cee26d23acf3eb67c9f9a2d58f1c681b16a4fbe8cbfb9e3c0b5a9b",
-                      "bytes":  1337
+                      "path":  "_Credit/Engine/third_party/LICENSE_stb_image.txt",
+                      "sha256":  "7587efcca32db8f95bf5860dea6dfa4be410ee723e1964db3689c8ddf2a2e4a9",
+                      "bytes":  2674
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_Noto_Sans_JP.txt",
@@ -48,9 +48,9 @@
                       "bytes":  2643
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_pl_mpeg.txt",
-                      "sha256":  "b1939c4c86ef0e9eea0321c81141e6577cb076ce8b98e46b0a73e0886b168a1c",
-                      "bytes":  1070
+                      "path":  "_Credit/Engine/third_party/LICENSE_Maximilian_stb_vorbis.txt",
+                      "sha256":  "4440d0747c819efe054b1a6f12921921b22fa8aaa2c5188fedc5fa4c1320219a",
+                      "bytes":  1195
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_simdjson.txt",
@@ -63,9 +63,19 @@
                       "bytes":  5209
                   },
                   {
+                      "path":  "_Credit/Engine/third_party/LICENSE_pl_mpeg.txt",
+                      "sha256":  "b1939c4c86ef0e9eea0321c81141e6577cb076ce8b98e46b0a73e0886b168a1c",
+                      "bytes":  1070
+                  },
+                  {
                       "path":  "_Credit/Engine/third_party/LICENSE_Web_dlmalloc.txt",
                       "sha256":  "7781ffde2aa763b574380b2ec36df3450baff58b14cdae9ca45924eb79589143",
                       "bytes":  448
+                  },
+                  {
+                      "path":  "Files/Murecho-SemiBold-web.woff2",
+                      "sha256":  "8e036bd5a15472372316090a667f255d9925d611b3ea2d6aed51992afcaab137",
+                      "bytes":  20532
                   },
                   {
                       "path":  "_Credit/Engine/third_party/NOTICE_WebRuntime.txt",
@@ -78,19 +88,19 @@
                       "bytes":  138719
                   },
                   {
-                      "path":  "Files/teruneko-fill.png",
-                      "sha256":  "9d1a4b1f70bb5aee83970158634e3d123b6aa3fac4a483b8a3e92fb9ff6aa5b5",
-                      "bytes":  22983
-                  },
-                  {
                       "path":  "Files/teruneko-line.png",
                       "sha256":  "b66d8a15939ca519699457a990938dc8740c6494b4d68aafe81d62df71a781e4",
                       "bytes":  14424
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Web_Musl.txt",
-                      "sha256":  "b870108ec5e7790e9f9919064f1b9421d62d5f9b0e6c230c6adf7ea2da62e97b",
-                      "bytes":  6196
+                      "path":  "Files/teruneko-fill.png",
+                      "sha256":  "9d1a4b1f70bb5aee83970158634e3d123b6aa3fac4a483b8a3e92fb9ff6aa5b5",
+                      "bytes":  22983
+                  },
+                  {
+                      "path":  "_Credit/Engine/third_party/LICENSE_Web_Libcxxabi.txt",
+                      "sha256":  "e2b35be49f7284a45b7baca8fc7b3ab7440e7902392b2528a457816b5bb2a15c",
+                      "bytes":  16706
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_Web_Libcxx.txt",
@@ -103,9 +113,9 @@
                       "bytes":  9573
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Web_Libcxxabi.txt",
-                      "sha256":  "e2b35be49f7284a45b7baca8fc7b3ab7440e7902392b2528a457816b5bb2a15c",
-                      "bytes":  16706
+                      "path":  "_Credit/Engine/third_party/LICENSE_Web_Musl.txt",
+                      "sha256":  "b870108ec5e7790e9f9919064f1b9421d62d5f9b0e6c230c6adf7ea2da62e97b",
+                      "bytes":  6196
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_Web_LLVM_Libc.txt",
@@ -118,9 +128,9 @@
                       "bytes":  16706
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Maximilian_stb_vorbis.txt",
-                      "sha256":  "4440d0747c819efe054b1a6f12921921b22fa8aaa2c5188fedc5fa4c1320219a",
-                      "bytes":  1195
+                      "path":  "_Credit/Engine/third_party/LICENSE_Maximilian_PolyBLEP.txt",
+                      "sha256":  "9e7bed438878bb7f36828faefa661cb397b682a78f637ce584f79733c80fa9db",
+                      "bytes":  1333
                   },
                   {
                       "path":  "README-Web.txt",
@@ -129,23 +139,28 @@
                   },
                   {
                       "path":  "index.html",
-                      "sha256":  "b4a6a6ca61ecd2ac8d99b292ec2f4e2137b1b85b5d32e661ac657227e7282d62",
-                      "bytes":  40413
+                      "sha256":  "eaa035e7fa51511e68b4585f76beae58a0b7ad5659ddb81029db600320a4c552",
+                      "bytes":  40826
                   },
                   {
-                      "path":  "_Credit/Game/third_party.txt",
-                      "sha256":  "06c5c7f34ac995ac903b78f7959b16dc19ea9da6aa68193e38db35202640fc1d",
-                      "bytes":  283
+                      "path":  "_Credit/Game/MPLUS1p-OFL.txt",
+                      "sha256":  "da15da6b1496d4de18f97e2ad1b722ef8a1c121149c2c93b2cf7eac6ac27b35c",
+                      "bytes":  4389
+                  },
+                  {
+                      "path":  "_Credit/Game/MochiyPopOne-OFL.txt",
+                      "sha256":  "76be26178f13ef82866cf6a5c54272191bb583c203ad7035021c7681c9043558",
+                      "bytes":  4387
                   },
                   {
                       "path":  "WebSizeReport.json",
-                      "sha256":  "90a247040e25e3194cad2d9cc157058425bd4adfec23142755019b16ae7df82e",
-                      "bytes":  266537
+                      "sha256":  "cf2178db0edea72290695a9aecf3d75379e24ac0a4b885ff81355b3c2f50ca56",
+                      "bytes":  337914
                   },
                   {
-                      "path":  "HREngine.wasm",
-                      "sha256":  "a5125ec1a5ebe84b9ede236c6b4f27e36ed8923db0c48df61922d3d21519d0d5",
-                      "bytes":  5734241
+                      "path":  "Assets.pack",
+                      "sha256":  "7518dbf9c7cc1e57e0f58cfd95a79dd2443245c6c438d114ec7bc3f5f27f590e",
+                      "bytes":  36189076
                   },
                   {
                       "path":  ".nojekyll",
@@ -158,29 +173,24 @@
                       "bytes":  118
                   },
                   {
-                      "path":  "Assets.pack",
-                      "sha256":  "1fa2a5ceb789de73cbfbe2069a0e7681eb588f87fb2d953356033e11e039058d",
-                      "bytes":  28461501
+                      "path":  "HREngine.wasm",
+                      "sha256":  "d1c7518da0f9fd277f2ed25cecceacc9c173f7926f3c4de4b4344d193654e113",
+                      "bytes":  5918237
                   },
                   {
                       "path":  "HREngine.js",
-                      "sha256":  "67e41d826436fc4432d71447b7ab57de6fd4640acad5f56b65fde72bb30e1e05",
-                      "bytes":  194693
+                      "sha256":  "5f7d8fb8ee33638d820ba3a09b27e924e0e4f699b0d79c60f410e0f62dd31015",
+                      "bytes":  196753
                   },
                   {
                       "path":  "Credits.html",
-                      "sha256":  "eba678ac98f3be74b57855867dc7c6d26efa51d7eb44e62a84c77af8a772ca85",
-                      "bytes":  4165
+                      "sha256":  "da5c0181b214784e274c15fc221a48f6052ab7ed30e623f012e98f2d9b1d6068",
+                      "bytes":  4379
                   },
                   {
-                      "path":  "_Credit/Game/ZenKakuGothicNew-OFL.txt",
-                      "sha256":  "0fac78a235c98d640cb06332eb5362c211d86fa03c011df438c35005d22ad2c7",
-                      "bytes":  4401
-                  },
-                  {
-                      "path":  "_Credit/Engine/third_party/LICENSE_LLGI.txt",
-                      "sha256":  "5e371202a5f08a49d86806427054337323ecd41efc4276d86676f26e832537d8",
-                      "bytes":  880
+                      "path":  "_Credit/Game/Murecho-OFL.txt",
+                      "sha256":  "7d9f69e9be971aaa0caf64555545b3d34d23204d53ee88085790866ee21c75f9",
+                      "bytes":  4393
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_Emscripten.txt",
@@ -188,39 +198,9 @@
                       "bytes":  5093
                   },
                   {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Maximilian.txt",
-                      "sha256":  "6497bfff9b64f3297a6252069a7c09c236aa3c2ec4294fa0230237252459f322",
-                      "bytes":  1060
-                  },
-                  {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Maximilian_PolyBLEP.txt",
-                      "sha256":  "9e7bed438878bb7f36828faefa661cb397b682a78f637ce584f79733c80fa9db",
-                      "bytes":  1333
-                  },
-                  {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Maximilian_Bundled_Notices.txt",
-                      "sha256":  "6dace5790c1846eb86487221d71ed582e19eb901540a67101bb75ba91280d09b",
-                      "bytes":  2079
-                  },
-                  {
                       "path":  "_Credit/Engine/third_party/LICENSE_EmdawnWebGPU.txt",
                       "sha256":  "2f79bf3699b0870251255b381670237f73f21a04a38c094f791eba39c5fd1df7",
                       "bytes":  3291
-                  },
-                  {
-                      "path":  "_Credit/Engine/third_party/LICENSE_Dawn.txt",
-                      "sha256":  "7e1efc85a78732a13d7ddfc8b52912da7c8f8d3c6d334624b20e3f3a96297de0",
-                      "bytes":  1561
-                  },
-                  {
-                      "path":  "_Credit/Engine/third_party.txt",
-                      "sha256":  "d313abcb94e8afeda852a23e3a520b440e1c0a83673ef4cc461d039263ef6c61",
-                      "bytes":  2576
-                  },
-                  {
-                      "path":  "_Credit/Engine/third_party/LICENSE_DirectXMath.txt",
-                      "sha256":  "9906940f61b1f0b533fa7d99baf55178b2808fbe113ea51dfbfad8572ccd5f2b",
-                      "bytes":  1162
                   },
                   {
                       "path":  "_Credit/Engine/third_party/LICENSE_Effekseer.txt",
@@ -228,9 +208,49 @@
                       "bytes":  1104
                   },
                   {
+                      "path":  "_Credit/Engine/third_party/LICENSE_Maximilian_Bundled_Notices.txt",
+                      "sha256":  "6dace5790c1846eb86487221d71ed582e19eb901540a67101bb75ba91280d09b",
+                      "bytes":  2079
+                  },
+                  {
+                      "path":  "_Credit/Engine/third_party/LICENSE_Maximilian.txt",
+                      "sha256":  "6497bfff9b64f3297a6252069a7c09c236aa3c2ec4294fa0230237252459f322",
+                      "bytes":  1060
+                  },
+                  {
+                      "path":  "_Credit/Engine/third_party/LICENSE_LLGI.txt",
+                      "sha256":  "5e371202a5f08a49d86806427054337323ecd41efc4276d86676f26e832537d8",
+                      "bytes":  880
+                  },
+                  {
+                      "path":  "_Credit/Engine/third_party.txt",
+                      "sha256":  "d313abcb94e8afeda852a23e3a520b440e1c0a83673ef4cc461d039263ef6c61",
+                      "bytes":  2576
+                  },
+                  {
+                      "path":  "_Credit/Game/third_party.txt",
+                      "sha256":  "6d584a1140f65c96a0dc6c1bcfe34cc62251f73d595ab8a540522fb462085922",
+                      "bytes":  796
+                  },
+                  {
+                      "path":  "_Credit/Game/Oxanium-OFL.txt",
+                      "sha256":  "fe17c0f2581d71b4e1ea7e636e7f4877c29223e11bb1dd1a871e8c3f2a86336b",
+                      "bytes":  4384
+                  },
+                  {
                       "path":  "_Credit/Engine/third_party/LICENSE_DotNet_SAL.txt",
                       "sha256":  "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310",
                       "bytes":  1116
+                  },
+                  {
+                      "path":  "_Credit/Engine/third_party/LICENSE_DirectXMath.txt",
+                      "sha256":  "9906940f61b1f0b533fa7d99baf55178b2808fbe113ea51dfbfad8572ccd5f2b",
+                      "bytes":  1162
+                  },
+                  {
+                      "path":  "_Credit/Engine/third_party/LICENSE_Dawn.txt",
+                      "sha256":  "7e1efc85a78732a13d7ddfc8b52912da7c8f8d3c6d334624b20e3f3a96297de0",
+                      "bytes":  1561
                   }
               ]
 }

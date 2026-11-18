@@ -1,8 +1,26 @@
 [HRStudio managed credits begin]
-Zen Kaku Gothic New (Bold)
-Author: The Zen Kaku Gothic Project Authors
+Murecho (SemiBold)
+Author: The Murecho Project Authors
 License: SIL Open Font License, Version 1.1
-Source: https://fonts.google.com/specimen/Zen+Kaku+Gothic+New
-Notice: ZenKakuGothicNew-OFL.txt
+Source: https://fonts.google.com/specimen/Murecho
+Notice: Murecho-OFL.txt
+
+Oxanium (SemiBold)
+Author: The Oxanium Project Authors
+License: SIL Open Font License, Version 1.1
+Source: https://fonts.google.com/specimen/Oxanium
+Notice: Oxanium-OFL.txt
+
+M PLUS 1p (ExtraBold)
+Author: The M+ Project Authors
+License: SIL Open Font License, Version 1.1
+Source: https://fonts.google.com/specimen/M+PLUS+1p
+Notice: MPLUS1p-OFL.txt
+
+Mochiy Pop One
+Author: The Mochiypop Project Authors
+License: SIL Open Font License, Version 1.1
+Source: https://fonts.google.com/specimen/Mochiy+Pop+One
+Notice: MochiyPopOne-OFL.txt
 
 [HRStudio managed credits end]
