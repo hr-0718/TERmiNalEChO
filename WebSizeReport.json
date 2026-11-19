@@ -5,9 +5,9 @@
     "backend":  "WebGPU",
     "configuration":  "Release",
     "measured":  {
-                     "startupUncompressedBytes":  44263763,
-                     "cookedAssetBytes":  37970209,
-                     "packBytes":  38024100,
+                     "startupUncompressedBytes":  44298216,
+                     "cookedAssetBytes":  37992451,
+                     "packBytes":  38046342,
                      "startupFiles":  [
                                           {
                                               "path":  "index.html",
@@ -19,11 +19,11 @@
                                           },
                                           {
                                               "path":  "HREngine.wasm",
-                                              "bytes":  5943697
+                                              "bytes":  5955908
                                           },
                                           {
                                               "path":  "Assets.pack",
-                                              "bytes":  38024100
+                                              "bytes":  38046342
                                           },
                                           {
                                               "path":  "Files/teruneko-line.png",
@@ -4269,7 +4269,7 @@
                                     },
                                     {
                                         "path":  "Assets/Shaders/TeRNeCoPBRLitePS.cso",
-                                        "bytes":  15023,
+                                        "bytes":  15525,
                                         "offset":  18451073,
                                         "kind":  "cso",
                                         "compressed":  true
@@ -4277,1477 +4277,1477 @@
                                     {
                                         "path":  "Assets/Shaders/TeRNeCoSimSpritePS.cso",
                                         "bytes":  7334,
-                                        "offset":  18466096,
+                                        "offset":  18466598,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/TeRNeCoToonBodyPS.cso",
                                         "bytes":  14562,
-                                        "offset":  18473430,
+                                        "offset":  18473932,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/TeRNeCoToonFacePS.cso",
                                         "bytes":  9703,
-                                        "offset":  18487992,
+                                        "offset":  18488494,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/TeRNeCoToonVS.cso",
                                         "bytes":  9010,
-                                        "offset":  18497695,
+                                        "offset":  18498197,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/texAndDepthPS.cso",
                                         "bytes":  2094,
-                                        "offset":  18506705,
+                                        "offset":  18507207,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/texAndDepthVS.cso",
                                         "bytes":  1934,
-                                        "offset":  18508799,
+                                        "offset":  18509301,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/texAndNmlPS.cso",
                                         "bytes":  4411,
-                                        "offset":  18510733,
+                                        "offset":  18511235,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/texAndNmlVS.cso",
                                         "bytes":  9015,
-                                        "offset":  18515144,
+                                        "offset":  18515646,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/toon1PS.cso",
                                         "bytes":  566,
-                                        "offset":  18524159,
+                                        "offset":  18524661,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/toon1VS.cso",
                                         "bytes":  9010,
-                                        "offset":  18524725,
+                                        "offset":  18525227,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/toon2PS.cso",
                                         "bytes":  567,
-                                        "offset":  18533735,
+                                        "offset":  18534237,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/toon2VS.cso",
                                         "bytes":  9010,
-                                        "offset":  18534302,
+                                        "offset":  18534804,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/toonPostProcessPS.cso",
                                         "bytes":  2193,
-                                        "offset":  18543312,
+                                        "offset":  18543814,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/toonPostProcessVS.cso",
                                         "bytes":  1936,
-                                        "offset":  18545505,
+                                        "offset":  18546007,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/UIPS.cso",
                                         "bytes":  1913,
-                                        "offset":  18547441,
+                                        "offset":  18547943,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/UIVS.cso",
                                         "bytes":  2134,
-                                        "offset":  18549354,
+                                        "offset":  18549856,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/unlitColorPS.cso",
                                         "bytes":  771,
-                                        "offset":  18551488,
+                                        "offset":  18551990,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/unlitColorVS.cso",
                                         "bytes":  9016,
-                                        "offset":  18552259,
+                                        "offset":  18552761,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/unlitTextureEntityPS.cso",
                                         "bytes":  16505,
-                                        "offset":  18561275,
+                                        "offset":  18561777,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/unlitTextureEntityVS.cso",
                                         "bytes":  9015,
-                                        "offset":  18577780,
+                                        "offset":  18578282,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/unlitTexturePS.cso",
                                         "bytes":  2654,
-                                        "offset":  18586795,
+                                        "offset":  18587297,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/unlitTextureVS.cso",
                                         "bytes":  9013,
-                                        "offset":  18589449,
+                                        "offset":  18589951,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/unlitTwinTexturePS.cso",
                                         "bytes":  5126,
-                                        "offset":  18598462,
+                                        "offset":  18598964,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/unlitTwinTextureVS.cso",
                                         "bytes":  9018,
-                                        "offset":  18603588,
+                                        "offset":  18604090,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/unlitUIColorPS.cso",
                                         "bytes":  773,
-                                        "offset":  18612606,
+                                        "offset":  18613108,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/unlitUIColorVS.cso",
                                         "bytes":  6126,
-                                        "offset":  18613379,
+                                        "offset":  18613881,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/unlitUITexturePS.cso",
                                         "bytes":  2656,
-                                        "offset":  18619505,
+                                        "offset":  18620007,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/unlitUITextureVS.cso",
                                         "bytes":  6125,
-                                        "offset":  18622161,
+                                        "offset":  18622663,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/viewWorldPositionPS.cso",
                                         "bytes":  926,
-                                        "offset":  18628286,
+                                        "offset":  18628788,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/viewWorldPositionVS.cso",
                                         "bytes":  9013,
-                                        "offset":  18629212,
+                                        "offset":  18629714,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/webVideoConvertCS.cso",
                                         "bytes":  1068,
-                                        "offset":  18638225,
+                                        "offset":  18638727,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/webVideoQuadPS.cso",
                                         "bytes":  766,
-                                        "offset":  18639293,
+                                        "offset":  18639795,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/webVideoQuadVS.cso",
                                         "bytes":  584,
-                                        "offset":  18640059,
+                                        "offset":  18640561,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/webVideoWorldVS.cso",
                                         "bytes":  1221,
-                                        "offset":  18640643,
+                                        "offset":  18641145,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/worldLightShaftGeometoryPointPS.cso",
                                         "bytes":  1655,
-                                        "offset":  18641864,
+                                        "offset":  18642366,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/worldLightShaftGeometoryPointVS.cso",
                                         "bytes":  6136,
-                                        "offset":  18643519,
+                                        "offset":  18644021,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/worldLightShaftGeometorySpotPS.cso",
                                         "bytes":  1691,
-                                        "offset":  18649655,
+                                        "offset":  18650157,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/worldLightShaftGeometorySpotVS.cso",
                                         "bytes":  6136,
-                                        "offset":  18651346,
+                                        "offset":  18651848,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/worldLightShaftPostProcessPS.cso",
                                         "bytes":  1580,
-                                        "offset":  18657482,
+                                        "offset":  18657984,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Shaders/worldLightShaftPostProcessVS.cso",
                                         "bytes":  1943,
-                                        "offset":  18659062,
+                                        "offset":  18659564,
                                         "kind":  "cso",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/BGM/tn_bgm_chase.wav",
                                         "bytes":  1141121,
-                                        "offset":  18661005,
+                                        "offset":  18661507,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/BGM/tn_bgm_home.wav",
                                         "bytes":  2037283,
-                                        "offset":  19802126,
+                                        "offset":  19802628,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/BGM/tn_bgm_plaza.wav",
                                         "bytes":  1530191,
-                                        "offset":  21839409,
+                                        "offset":  21839911,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/BGM/tn_bgm_train.wav",
                                         "bytes":  1389223,
-                                        "offset":  23369600,
+                                        "offset":  23370102,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_alarm.wav",
                                         "bytes":  91444,
-                                        "offset":  24758823,
+                                        "offset":  24759325,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_angry.wav",
                                         "bytes":  42622,
-                                        "offset":  24850267,
+                                        "offset":  24850769,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_beep.wav",
                                         "bytes":  14876,
-                                        "offset":  24892889,
+                                        "offset":  24893391,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_bell.wav",
                                         "bytes":  68393,
-                                        "offset":  24907765,
+                                        "offset":  24908267,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_boost.wav",
                                         "bytes":  44281,
-                                        "offset":  24976158,
+                                        "offset":  24976660,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_break.wav",
                                         "bytes":  29162,
-                                        "offset":  25020439,
+                                        "offset":  25020941,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_c8_alarm.wav",
                                         "bytes":  10747,
-                                        "offset":  25049601,
+                                        "offset":  25050103,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_c8_bigboom.wav",
                                         "bytes":  61001,
-                                        "offset":  25060348,
+                                        "offset":  25060850,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_c8_boom.wav",
                                         "bytes":  6424,
-                                        "offset":  25121349,
+                                        "offset":  25121851,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_c8_boom2.wav",
                                         "bytes":  25029,
-                                        "offset":  25127773,
+                                        "offset":  25128275,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_c8_chain.wav",
                                         "bytes":  4075,
-                                        "offset":  25152802,
+                                        "offset":  25153304,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_c8_clear.wav",
                                         "bytes":  34341,
-                                        "offset":  25156877,
+                                        "offset":  25157379,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_c8_clear_lo.wav",
                                         "bytes":  9937,
-                                        "offset":  25191218,
+                                        "offset":  25191720,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_c8_hit.wav",
                                         "bytes":  3505,
-                                        "offset":  25201155,
+                                        "offset":  25201657,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_c8_shot.wav",
                                         "bytes":  3278,
-                                        "offset":  25204660,
+                                        "offset":  25205162,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_c8_summon.wav",
                                         "bytes":  2229,
-                                        "offset":  25207938,
+                                        "offset":  25208440,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_c8_thunder.wav",
                                         "bytes":  3651,
-                                        "offset":  25210167,
+                                        "offset":  25210669,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_call.wav",
                                         "bytes":  40563,
-                                        "offset":  25213818,
+                                        "offset":  25214320,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_charge.wav",
                                         "bytes":  19493,
-                                        "offset":  25254381,
+                                        "offset":  25254883,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_chip.wav",
                                         "bytes":  45288,
-                                        "offset":  25273874,
+                                        "offset":  25274376,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_clack.wav",
                                         "bytes":  20768,
-                                        "offset":  25319162,
+                                        "offset":  25319664,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_cute_finish.wav",
                                         "bytes":  91978,
-                                        "offset":  25339930,
+                                        "offset":  25340432,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_cutin.wav",
                                         "bytes":  26554,
-                                        "offset":  25431908,
+                                        "offset":  25432410,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_door.wav",
                                         "bytes":  63531,
-                                        "offset":  25458462,
+                                        "offset":  25458964,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_ending.wav",
                                         "bytes":  357277,
-                                        "offset":  25521993,
+                                        "offset":  25522495,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_ending_bad.wav",
                                         "bytes":  307874,
-                                        "offset":  25879270,
+                                        "offset":  25879772,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_fail.wav",
                                         "bytes":  43765,
-                                        "offset":  26187144,
+                                        "offset":  26187646,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_ff.wav",
                                         "bytes":  58590,
-                                        "offset":  26230909,
+                                        "offset":  26231411,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_finish.wav",
                                         "bytes":  93293,
-                                        "offset":  26289499,
+                                        "offset":  26290001,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_finish_lo.wav",
                                         "bytes":  72804,
-                                        "offset":  26382792,
+                                        "offset":  26383294,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_good.wav",
                                         "bytes":  106270,
-                                        "offset":  26455596,
+                                        "offset":  26456098,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_grab.wav",
                                         "bytes":  29289,
-                                        "offset":  26561866,
+                                        "offset":  26562368,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_hit.wav",
                                         "bytes":  38628,
-                                        "offset":  26591155,
+                                        "offset":  26591657,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_impact.wav",
                                         "bytes":  33224,
-                                        "offset":  26629783,
+                                        "offset":  26630285,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_install.wav",
                                         "bytes":  140589,
-                                        "offset":  26663007,
+                                        "offset":  26663509,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_lock.wav",
                                         "bytes":  117487,
-                                        "offset":  26803596,
+                                        "offset":  26804098,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_lunge.wav",
                                         "bytes":  21326,
-                                        "offset":  26921083,
+                                        "offset":  26921585,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_month.wav",
                                         "bytes":  157093,
-                                        "offset":  26942409,
+                                        "offset":  26942911,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_note.wav",
                                         "bytes":  51756,
-                                        "offset":  27099502,
+                                        "offset":  27100004,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_note_good.wav",
                                         "bytes":  46975,
-                                        "offset":  27151258,
+                                        "offset":  27151760,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_pass.wav",
                                         "bytes":  18081,
-                                        "offset":  27198233,
+                                        "offset":  27198735,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_paw.wav",
                                         "bytes":  43125,
-                                        "offset":  27216314,
+                                        "offset":  27216816,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_perfect.wav",
                                         "bytes":  126672,
-                                        "offset":  27259439,
+                                        "offset":  27259941,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_pet.wav",
                                         "bytes":  49085,
-                                        "offset":  27386111,
+                                        "offset":  27386613,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_pop.wav",
                                         "bytes":  27487,
-                                        "offset":  27435196,
+                                        "offset":  27435698,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_pull.wav",
                                         "bytes":  54659,
-                                        "offset":  27462683,
+                                        "offset":  27463185,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_shot.wav",
                                         "bytes":  20537,
-                                        "offset":  27517342,
+                                        "offset":  27517844,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_slam.wav",
                                         "bytes":  56818,
-                                        "offset":  27537879,
+                                        "offset":  27538381,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_snap.wav",
                                         "bytes":  19778,
-                                        "offset":  27594697,
+                                        "offset":  27595199,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_swish.wav",
                                         "bytes":  30197,
-                                        "offset":  27614475,
+                                        "offset":  27614977,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_sync.wav",
                                         "bytes":  85731,
-                                        "offset":  27644672,
+                                        "offset":  27645174,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_tap.wav",
                                         "bytes":  13154,
-                                        "offset":  27730403,
+                                        "offset":  27730905,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Sounds/SE/tn_thrust.wav",
                                         "bytes":  16098,
-                                        "offset":  27743557,
+                                        "offset":  27744059,
                                         "kind":  "wav",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Text/licenceText.heText",
                                         "bytes":  46774,
-                                        "offset":  27759655,
+                                        "offset":  27760157,
                                         "kind":  "hetext",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Text/text.heText",
                                         "bytes":  7449,
-                                        "offset":  27806429,
+                                        "offset":  27806931,
                                         "kind":  "hetext",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Accessory/Acc/BaseColor.png",
                                         "bytes":  44835,
-                                        "offset":  27813878,
+                                        "offset":  27814380,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Accessory/Acc/Glow_data.png",
                                         "bytes":  9705,
-                                        "offset":  27858713,
+                                        "offset":  27859215,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Accessory/Acc/Surface_data.png",
                                         "bytes":  122138,
-                                        "offset":  27868418,
+                                        "offset":  27868920,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/black.png",
                                         "bytes":  37,
-                                        "offset":  27990556,
+                                        "offset":  27991058,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Chase/Obstacles/BaseColor.png",
                                         "bytes":  357958,
-                                        "offset":  27990593,
+                                        "offset":  27991095,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Chase/Obstacles/Emissive.png",
                                         "bytes":  14524,
-                                        "offset":  28348551,
+                                        "offset":  28349053,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Chase/Obstacles/Surface_data.png",
                                         "bytes":  112494,
-                                        "offset":  28363075,
+                                        "offset":  28363577,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Chase/Segment/BaseColor.png",
                                         "bytes":  389605,
-                                        "offset":  28475569,
+                                        "offset":  28476071,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Chase/Segment/Emissive.png",
                                         "bytes":  22945,
-                                        "offset":  28865174,
+                                        "offset":  28865676,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Chase/Segment/Surface_data.png",
                                         "bytes":  113099,
-                                        "offset":  28888119,
+                                        "offset":  28888621,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Combat/Enemies/BaseColorAlpha.png",
                                         "bytes":  4181,
-                                        "offset":  29001218,
+                                        "offset":  29001720,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Combat/Room/BaseColor.png",
                                         "bytes":  381767,
-                                        "offset":  29005399,
+                                        "offset":  29005901,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Combat/Room/Emissive.png",
                                         "bytes":  41494,
-                                        "offset":  29387166,
+                                        "offset":  29387668,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Combat/Room/Surface_data.png",
                                         "bytes":  126411,
-                                        "offset":  29428660,
+                                        "offset":  29429162,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Combat/Screen/BaseColor.png",
                                         "bytes":  11803,
-                                        "offset":  29555071,
+                                        "offset":  29555573,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Combat/Screen/Emissive.png",
                                         "bytes":  118918,
-                                        "offset":  29566874,
+                                        "offset":  29567376,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Combat/Screen/Surface_data.png",
                                         "bytes":  124,
-                                        "offset":  29685792,
+                                        "offset":  29686294,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Combat/SimBG/BaseColorAlpha.png",
                                         "bytes":  18034,
-                                        "offset":  29685916,
+                                        "offset":  29686418,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Editor/draw.png",
                                         "bytes":  8842,
-                                        "offset":  29703950,
+                                        "offset":  29704452,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Editor/rot.png",
                                         "bytes":  8032,
-                                        "offset":  29712792,
+                                        "offset":  29713294,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Editor/sca.png",
                                         "bytes":  7478,
-                                        "offset":  29720824,
+                                        "offset":  29721326,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Editor/static.png",
                                         "bytes":  7027,
-                                        "offset":  29728302,
+                                        "offset":  29728804,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Editor/terrain_brush.png",
                                         "bytes":  3408,
-                                        "offset":  29735329,
+                                        "offset":  29735831,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Editor/trans.png",
                                         "bytes":  5972,
-                                        "offset":  29738737,
+                                        "offset":  29739239,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Editor/univ.png",
                                         "bytes":  9864,
-                                        "offset":  29744709,
+                                        "offset":  29745211,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Editor/update.png",
                                         "bytes":  7182,
-                                        "offset":  29754573,
+                                        "offset":  29755075,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/EventKit/Kit/BaseColor.png",
                                         "bytes":  387930,
-                                        "offset":  29761755,
+                                        "offset":  29762257,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/EventKit/Kit/Emissive.png",
                                         "bytes":  15392,
-                                        "offset":  30149685,
+                                        "offset":  30150187,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/EventKit/Kit/Surface_data.png",
                                         "bytes":  114802,
-                                        "offset":  30165077,
+                                        "offset":  30165579,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Flight/Gates/BaseColor.png",
                                         "bytes":  73996,
-                                        "offset":  30279879,
+                                        "offset":  30280381,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Flight/Gates/Emissive.png",
                                         "bytes":  8107,
-                                        "offset":  30353875,
+                                        "offset":  30354377,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Flight/Gates/Surface_data.png",
                                         "bytes":  74049,
-                                        "offset":  30361982,
+                                        "offset":  30362484,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Flight/Segment/BaseColor.png",
                                         "bytes":  322524,
-                                        "offset":  30436031,
+                                        "offset":  30436533,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Flight/Segment/Emissive.png",
                                         "bytes":  22566,
-                                        "offset":  30758555,
+                                        "offset":  30759057,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Flight/Segment/Surface_data.png",
                                         "bytes":  115413,
-                                        "offset":  30781121,
+                                        "offset":  30781623,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/HomeB/Furniture/BaseColor.png",
                                         "bytes":  460052,
-                                        "offset":  30896534,
+                                        "offset":  30897036,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/HomeB/Furniture/Emissive.png",
                                         "bytes":  55378,
-                                        "offset":  31356586,
+                                        "offset":  31357088,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/HomeB/Furniture/Surface_data.png",
                                         "bytes":  136810,
-                                        "offset":  31411964,
+                                        "offset":  31412466,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/HomeB/Room/BaseColor.png",
                                         "bytes":  403447,
-                                        "offset":  31548774,
+                                        "offset":  31549276,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/HomeB/Room/Emissive.png",
                                         "bytes":  18716,
-                                        "offset":  31952221,
+                                        "offset":  31952723,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/HomeB/Room/Surface_data.png",
                                         "bytes":  103752,
-                                        "offset":  31970937,
+                                        "offset":  31971439,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/HomeB/Toys/BaseColor.png",
                                         "bytes":  397204,
-                                        "offset":  32074689,
+                                        "offset":  32075191,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/HomeB/Toys/Emissive.png",
                                         "bytes":  16321,
-                                        "offset":  32471893,
+                                        "offset":  32472395,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/HomeB/Toys/Surface_data.png",
                                         "bytes":  95785,
-                                        "offset":  32488214,
+                                        "offset":  32488716,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/HRE/SkyGradient.png",
                                         "bytes":  347,
-                                        "offset":  32583999,
+                                        "offset":  32584501,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/HRE/White.png",
                                         "bytes":  36,
-                                        "offset":  32584346,
+                                        "offset":  32584848,
                                         "kind":  "png",
                                         "compressed":  false
                                     },
                                     {
                                         "path":  "Assets/Textures/Meet/Room/BaseColor.png",
                                         "bytes":  374335,
-                                        "offset":  32584382,
+                                        "offset":  32584884,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Meet/Room/Emissive.png",
                                         "bytes":  29504,
-                                        "offset":  32958717,
+                                        "offset":  32959219,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Meet/Room/Surface_data.png",
                                         "bytes":  109467,
-                                        "offset":  32988221,
+                                        "offset":  32988723,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/nml.png",
                                         "bytes":  36,
-                                        "offset":  33097688,
+                                        "offset":  33098190,
                                         "kind":  "png",
                                         "compressed":  false
                                     },
                                     {
                                         "path":  "Assets/Textures/Plaza/Room/BaseColor.png",
                                         "bytes":  291664,
-                                        "offset":  33097724,
+                                        "offset":  33098226,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Plaza/Room/Emissive.png",
                                         "bytes":  45410,
-                                        "offset":  33389388,
+                                        "offset":  33389890,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Plaza/Room/Surface_data.png",
                                         "bytes":  111174,
-                                        "offset":  33434798,
+                                        "offset":  33435300,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Standby/Room/BaseColor.png",
                                         "bytes":  367555,
-                                        "offset":  33545972,
+                                        "offset":  33546474,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Standby/Room/Emissive.png",
                                         "bytes":  21669,
-                                        "offset":  33913527,
+                                        "offset":  33914029,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Standby/Room/Surface_data.png",
                                         "bytes":  99422,
-                                        "offset":  33935196,
+                                        "offset":  33935698,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Studio/Room/BaseColor.png",
                                         "bytes":  446119,
-                                        "offset":  34034618,
+                                        "offset":  34035120,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Studio/Room/Emissive.png",
                                         "bytes":  41754,
-                                        "offset":  34480737,
+                                        "offset":  34481239,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Studio/Room/Surface_data.png",
                                         "bytes":  135573,
-                                        "offset":  34522491,
+                                        "offset":  34522993,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TeRNeCo/Body/BaseColor.png",
                                         "bytes":  312442,
-                                        "offset":  34658064,
+                                        "offset":  34658566,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TeRNeCo/Faces/TeNeFace_test_02/BaseColor.png",
                                         "bytes":  25078,
-                                        "offset":  34970506,
+                                        "offset":  34971008,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TeRNeCo/Faces/TN_Aim/BaseColor.png",
                                         "bytes":  6602,
-                                        "offset":  34995584,
+                                        "offset":  34996086,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TeRNeCo/Faces/TN_Angry/BaseColor.png",
                                         "bytes":  15648,
-                                        "offset":  35002186,
+                                        "offset":  35002688,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TeRNeCo/Faces/TN_Ase/BaseColor.png",
                                         "bytes":  33824,
-                                        "offset":  35017834,
+                                        "offset":  35018336,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TeRNeCo/Faces/TN_Gao/BaseColor.png",
                                         "bytes":  32438,
-                                        "offset":  35051658,
+                                        "offset":  35052160,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TeRNeCo/Faces/TN_Happy/BaseColor.png",
                                         "bytes":  28848,
-                                        "offset":  35084096,
+                                        "offset":  35084598,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TeRNeCo/Faces/TN_Niya/BaseColor.png",
                                         "bytes":  28211,
-                                        "offset":  35112944,
+                                        "offset":  35113446,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TeRNeCo/Faces/TN_Shobon/BaseColor.png",
                                         "bytes":  5876,
-                                        "offset":  35141155,
+                                        "offset":  35141657,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TeRNeCo/Faces/TN_Sleep/BaseColor.png",
                                         "bytes":  6357,
-                                        "offset":  35147031,
+                                        "offset":  35147533,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TeRNeCo/Glow/Mask_data.png",
-                                        "bytes":  8519,
-                                        "offset":  35153388,
+                                        "bytes":  28472,
+                                        "offset":  35153890,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TeRNeCo/Silhouette/BaseColorAlpha.png",
                                         "bytes":  16288,
-                                        "offset":  35161907,
+                                        "offset":  35182362,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TeRNeCo/Surface/Surface_data.png",
                                         "bytes":  133055,
-                                        "offset":  35178195,
+                                        "offset":  35198650,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Furniture/BaseColor.png",
                                         "bytes":  414171,
-                                        "offset":  35311250,
+                                        "offset":  35331705,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Furniture/Emissive.png",
                                         "bytes":  43731,
-                                        "offset":  35725421,
+                                        "offset":  35745876,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Furniture/Surface_data.png",
                                         "bytes":  120706,
-                                        "offset":  35769152,
+                                        "offset":  35789607,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Props/BaseColor.png",
                                         "bytes":  357744,
-                                        "offset":  35889858,
+                                        "offset":  35910313,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Props/Emissive.png",
                                         "bytes":  31323,
-                                        "offset":  36247602,
+                                        "offset":  36268057,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Props/Surface_data.png",
                                         "bytes":  97187,
-                                        "offset":  36278925,
+                                        "offset":  36299380,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Room/BaseColor.png",
                                         "bytes":  420034,
-                                        "offset":  36376112,
+                                        "offset":  36396567,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Room/Emissive.png",
                                         "bytes":  28561,
-                                        "offset":  36796146,
+                                        "offset":  36816601,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Room/Surface_data.png",
                                         "bytes":  115007,
-                                        "offset":  36824707,
+                                        "offset":  36845162,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen/BaseColor.png",
                                         "bytes":  191,
-                                        "offset":  36939714,
+                                        "offset":  36960169,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen/Emissive.png",
                                         "bytes":  6465,
-                                        "offset":  36939905,
+                                        "offset":  36960360,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen/Surface_data.png",
                                         "bytes":  105,
-                                        "offset":  36946370,
+                                        "offset":  36966825,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_ArrowDown/BaseColor.png",
                                         "bytes":  162,
-                                        "offset":  36946475,
+                                        "offset":  36966930,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_ArrowDown/Emissive.png",
                                         "bytes":  35456,
-                                        "offset":  36946637,
+                                        "offset":  36967092,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_ArrowLeft/BaseColor.png",
                                         "bytes":  162,
-                                        "offset":  36982093,
+                                        "offset":  37002548,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_ArrowLeft/Emissive.png",
                                         "bytes":  43879,
-                                        "offset":  36982255,
+                                        "offset":  37002710,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_ArrowRight/BaseColor.png",
                                         "bytes":  162,
-                                        "offset":  37026134,
+                                        "offset":  37046589,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_ArrowRight/Emissive.png",
                                         "bytes":  43791,
-                                        "offset":  37026296,
+                                        "offset":  37046751,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_ArrowUp/BaseColor.png",
                                         "bytes":  162,
-                                        "offset":  37070087,
+                                        "offset":  37090542,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_ArrowUp/Emissive.png",
                                         "bytes":  35281,
-                                        "offset":  37070249,
+                                        "offset":  37090704,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_Drone/BaseColor.png",
                                         "bytes":  162,
-                                        "offset":  37105530,
+                                        "offset":  37125985,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_Drone/Emissive.png",
                                         "bytes":  42523,
-                                        "offset":  37105692,
+                                        "offset":  37126147,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_Dummy/BaseColor.png",
                                         "bytes":  162,
-                                        "offset":  37148215,
+                                        "offset":  37168670,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_Dummy/Emissive.png",
                                         "bytes":  37486,
-                                        "offset":  37148377,
+                                        "offset":  37168832,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_Idle/BaseColor.png",
                                         "bytes":  162,
-                                        "offset":  37185863,
+                                        "offset":  37206318,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_Idle/Emissive.png",
                                         "bytes":  124248,
-                                        "offset":  37186025,
+                                        "offset":  37206480,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_Ring/BaseColor.png",
                                         "bytes":  162,
-                                        "offset":  37310273,
+                                        "offset":  37330728,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_Ring/Emissive.png",
                                         "bytes":  48534,
-                                        "offset":  37310435,
+                                        "offset":  37330890,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_Sync/BaseColor.png",
                                         "bytes":  162,
-                                        "offset":  37358969,
+                                        "offset":  37379424,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/Screen_Sync/Emissive.png",
                                         "bytes":  49831,
-                                        "offset":  37359131,
+                                        "offset":  37379586,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/ShotGlow/BaseColor.png",
                                         "bytes":  41,
-                                        "offset":  37408962,
+                                        "offset":  37429417,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/Training/ShotGlow/Emissive.png",
                                         "bytes":  41,
-                                        "offset":  37409003,
+                                        "offset":  37429458,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TrainKit/Kit/BaseColor.png",
                                         "bytes":  345961,
-                                        "offset":  37409044,
+                                        "offset":  37429499,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TrainKit/Kit/Emissive.png",
                                         "bytes":  44950,
-                                        "offset":  37755005,
+                                        "offset":  37775460,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/TrainKit/Kit/Surface_data.png",
                                         "bytes":  101025,
-                                        "offset":  37799955,
+                                        "offset":  37820410,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/UI/Gradient/BaseColorAlpha.png",
                                         "bytes":  318,
-                                        "offset":  37900980,
+                                        "offset":  37921435,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/UI/Icons/BaseColorAlpha.png",
-                                        "bytes":  85250,
-                                        "offset":  37901298,
+                                        "bytes":  87037,
+                                        "offset":  37921753,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/UI/Minigame/BaseColorAlpha.png",
                                         "bytes":  33150,
-                                        "offset":  37986548,
+                                        "offset":  38008790,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/UI/Ruler/BaseColorAlpha.png",
                                         "bytes":  183,
-                                        "offset":  38019698,
+                                        "offset":  38041940,
                                         "kind":  "png",
                                         "compressed":  true
                                     },
                                     {
                                         "path":  "Assets/Textures/UI/Scan/BaseColorAlpha.png",
                                         "bytes":  4219,
-                                        "offset":  38019881,
+                                        "offset":  38042123,
                                         "kind":  "png",
                                         "compressed":  true
                                     }
@@ -5755,7 +5755,7 @@
                  },
     "transfer":  {
                      "compressedBytes":  null,
-                     "uncompressedUpperBoundBytes":  44263763,
+                     "uncompressedUpperBoundBytes":  44298216,
                      "status":  "Hosting compression is not measured locally; no precompressed alternative is required."
                  },
     "memory":  {
