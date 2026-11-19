@@ -139,7 +139,7 @@
                   },
                   {
                       "path":  "index.html",
-                      "sha256":  "cdf4a035235e508b8d038a1a83ca6916a4f57d2c19776e993a8ec40fb39cc104",
+                      "sha256":  "ac09234832c45341ce1daf4982f1743305c3c1e597748e87b150d68dbf2f6930",
                       "bytes":  40826
                   },
                   {
@@ -154,13 +154,13 @@
                   },
                   {
                       "path":  "WebSizeReport.json",
-                      "sha256":  "70e446fe40784f6a432d55497e48d95c500f2f3fdd21d4dab7f9dd522d66dda6",
-                      "bytes":  341677
+                      "sha256":  "26df6da8a43c78e1c8f0af455fafa37c4583c9e0c34f7633cb072bc37b703599",
+                      "bytes":  347913
                   },
                   {
                       "path":  "Assets.pack",
-                      "sha256":  "b61d65ea358b10c7424fe21a73022657f7c61233b22df5370dc381c8bb0c4258",
-                      "bytes":  38046342
+                      "sha256":  "2474c3df4df3d396149bcb30f46887a1d12838807c99999d99b2e932a2948f51",
+                      "bytes":  39270951
                   },
                   {
                       "path":  ".nojekyll",
@@ -174,13 +174,13 @@
                   },
                   {
                       "path":  "HREngine.wasm",
-                      "sha256":  "d647bdea52f9af59614827d083e11f22c32412bf1f58ad638add2964b268a26f",
-                      "bytes":  5955908
+                      "sha256":  "28e1cbec78f602247e8a6a7df10d874b50193afe826eefb3d6ede4461544c4a8",
+                      "bytes":  6108832
                   },
                   {
                       "path":  "HREngine.js",
-                      "sha256":  "0012c8cdcec4f8bcb04999787067f8bd10b76308d34cec6407a8f9a592c327ca",
-                      "bytes":  197201
+                      "sha256":  "a53609f3462514ecc2a84b309b2d54cfc2795ec96dc535ad2f6e1e60ca62552a",
+                      "bytes":  203208
                   },
                   {
                       "path":  "Credits.html",
