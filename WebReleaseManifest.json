@@ -154,7 +154,7 @@
                   },
                   {
                       "path":  "WebSizeReport.json",
-                      "sha256":  "26df6da8a43c78e1c8f0af455fafa37c4583c9e0c34f7633cb072bc37b703599",
+                      "sha256":  "f70f5b055cc8dfd3e1b251fbf0f7c657ca3fe6bf18f162a5559a3b22830102f7",
                       "bytes":  347913
                   },
                   {
@@ -174,13 +174,13 @@
                   },
                   {
                       "path":  "HREngine.wasm",
-                      "sha256":  "28e1cbec78f602247e8a6a7df10d874b50193afe826eefb3d6ede4461544c4a8",
-                      "bytes":  6108832
+                      "sha256":  "15d2a93ed01ffd9e9b428f40785df42fde2e5126134a2d4cb119b65d84f1dc38",
+                      "bytes":  6114540
                   },
                   {
                       "path":  "HREngine.js",
-                      "sha256":  "a53609f3462514ecc2a84b309b2d54cfc2795ec96dc535ad2f6e1e60ca62552a",
-                      "bytes":  203208
+                      "sha256":  "aaf18405cd5525d9e9cb4cfad7767c565bdfee7cdf987c44af93fe3c5168e2a4",
+                      "bytes":  203207
                   },
                   {
                       "path":  "Credits.html",

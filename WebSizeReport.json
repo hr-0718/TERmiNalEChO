@@ -5,7 +5,7 @@
     "backend":  "WebGPU",
     "configuration":  "Release",
     "measured":  {
-                     "startupUncompressedBytes":  45681756,
+                     "startupUncompressedBytes":  45687463,
                      "cookedAssetBytes":  39216063,
                      "packBytes":  39270951,
                      "startupFiles":  [
@@ -15,11 +15,11 @@
                                           },
                                           {
                                               "path":  "HREngine.js",
-                                              "bytes":  203208
+                                              "bytes":  203207
                                           },
                                           {
                                               "path":  "HREngine.wasm",
-                                              "bytes":  6108832
+                                              "bytes":  6114540
                                           },
                                           {
                                               "path":  "Assets.pack",
@@ -5860,7 +5860,7 @@
                  },
     "transfer":  {
                      "compressedBytes":  null,
-                     "uncompressedUpperBoundBytes":  45681756,
+                     "uncompressedUpperBoundBytes":  45687463,
                      "status":  "Hosting compression is not measured locally; no precompressed alternative is required."
                  },
     "memory":  {
